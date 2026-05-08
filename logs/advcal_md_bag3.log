@@ -1,0 +1,43 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+==============================================================================
+V5-Z Match-Disjoint Advanced Calibration
+==============================================================================
+Seeds: ['42', '1337', '100']
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+OOF samples: 69712, action=19, point=10
+
+Raw component (bagged):
+  LSTM  action F1=0.3640  point F1=0.2169
+  LGB   action F1=0.3090  point F1=0.1813
+
+Search alpha (step 0.01):
+  action α=0.86  raw F1_a=0.3656
+  point  α=1.00  raw F1_p=0.2169
+
+Plug-in additive bias:
+  action F1_a=0.3748
+  point  F1_p=0.2354
+
+Final match-disjoint OOF CV: 0.4441
+
+Submission: submissions/submission_v5z_md_advcal_bag3.csv  (1236 rows)
+
+Compare:
+  baseline V5Z bag2 calibrated CV (rally-KFold): 0.4816  → LB 0.4285
+  match-disjoint bag3 calibrated CV:    0.4441  → expected LB ~0.4361

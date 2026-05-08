@@ -1,0 +1,66 @@
+========================================================================
+T4: T3 + Multi-level Empirical Bayes partial pooling
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+
+Fold 1/5: Tr 42537 samples, Va 9214, total feats=91
+  T4 new (17): ['eb_srv_p', 'eb_srv_logit', 'eb_srv_lambda', 'eb_srv_post_se', 'eb_srv_group_mean', 'eb_srv_n', 'eb_srv_seen', 'eb_rcv_p', 'eb_rcv_logit', 'eb_rcv_lambda', 'eb_rcv_post_se', 'eb_rcv_group_mean', 'eb_rcv_n', 'eb_rcv_seen', 'eb_skill_diff', 'eb_combined_p', 'eb_uncertainty']
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[103]	valid_0's multi_logloss: 1.78519
+  Fold 1 prefix-AUC: 0.7799, best_iter: 103, T4-new-in-top10: 4/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[71]	valid_0's multi_logloss: 1.85272
+  Fold 2 prefix-AUC: 0.7500, best_iter: 71, T4-new-in-top10: 4/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[62]	valid_0's multi_logloss: 1.87708
+  Fold 3 prefix-AUC: 0.7635, best_iter: 62, T4-new-in-top10: 3/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[82]	valid_0's multi_logloss: 1.83869
+  Fold 4 prefix-AUC: 0.7628, best_iter: 82, T4-new-in-top10: 4/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[78]	valid_0's multi_logloss: 1.8304
+  Fold 5 prefix-AUC: 0.7798, best_iter: 78, T4-new-in-top10: 4/10
+
+========================================================================
+T4 OOF AUC (per-rally aggregated): 0.8181
+
+Top 25 features by gain (last fold):
+             feature   importance
+    t1_stacking_pred 64092.112683
+   parity_bayes_unif 20868.659046
+     last_strengthId 13385.329651
+cum_strokes_in_match 11851.547539
+             ctx_len 11153.796188
+            eb_rcv_p 10072.609492
+       eb_skill_diff  9966.978827
+            eb_srv_p  9793.178361
+      eb_uncertainty  9165.727100
+   morris_importance  8768.937705
+           n_attacks  8134.047288
+       eb_srv_lambda  6765.851101
+     dominance_index  6546.493393
+       eb_rcv_lambda  6533.651990
+        last_pointId  6202.555004
+   mean_seg_distance  5664.067132
+       last_actionId  5651.111663
+       strength_mean  5565.155879
+   total_path_length  5373.726444
+   eb_srv_group_mean  4968.952429
+          numberGame  4870.047876
+      eb_rcv_post_se  4717.848099
+      eb_srv_post_se  4701.631956
+       prev_actionId  4422.310276
+        prev_pointId  4362.202044
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5438, std: 0.2429, range: [0.1011, 0.9360]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t4_eb.npz
+   Holdout AUC: 0.8181

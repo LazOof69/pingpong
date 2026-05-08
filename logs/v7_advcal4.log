@@ -1,0 +1,30 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+======================================================================
+V7 Advanced Calibration v2 — 4-way ensemble
+======================================================================
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+OOF samples: 69712
+  raw action LSTM_bag: F1_a=0.4230
+  raw action V5: F1_a=0.3903
+  raw action P2: F1_a=0.3934
+  raw action P3: F1_a=0.3248
+  raw point  LSTM_bag: F1_p=0.2426
+  raw point  V5: F1_p=0.2523
+  raw point  P2: F1_p=0.2462
+  raw point  P3: F1_p=0.2491
+
+──────────────────────────────────────────────────────────────────────
+【D】4-way scalar (LSTM + V5 + P2 + P3) + plug-in bias  step=0.1
+  action  α=0.50 β=0.50 γ=0.00 δ=0.00  F1_a=0.4387 (2899.2s)
+  point   α=0.20 β=0.60 γ=0.20 δ=-0.00  F1_p=0.2846 (1215.8s)
+  D CV:   0.4893  (vs V7 advcal 0.4893: +0.0000)
+
+4-way did not beat 3-way. V7 advcal stays final.

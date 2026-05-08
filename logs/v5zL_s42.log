@@ -1,0 +1,132 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+
+============================================================
+準備資料...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  LSTM 訓練樣本: 69712
+  LSTM 測試樣本: 1236
+建立 LGB 特徵...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  LGB 特徵: 48 個
+  準備完成 (16.2s)
+
+  actionId weights: {0: 0.426, 1: 0.155, 2: 0.242, 3: 0.418, 4: 0.376, 5: 0.298, 6: 0.237, 7: 0.513, 8: 1.0, 9: 0.684, 10: 0.182, 11: 0.325, 12: 0.287, 13: 0.218, 14: 0.779}
+  pointId weights:  {0: 0.115, 1: 0.591, 2: 0.325, 3: 1.0, 4: 0.26, 5: 0.176, 6: 0.21, 7: 0.149, 8: 0.128, 9: 0.112}
+
+============================================================
+開始 5-fold CV (V5: LSTM+LGB Ensemble)
+
+──────────────────────────────────────────────────
+Fold 1/5
+  LSTM Train: 55529, Val: 14183
+  E  1: loss=2.5468 F1_act=0.2133 F1_pt=0.1235 Score=0.3347 tf_p=0.50
+  E  5: loss=2.0796 F1_act=0.3768 F1_pt=0.1847 Score=0.4246 tf_p=0.45
+  E 10: loss=1.9552 F1_act=0.3986 F1_pt=0.2015 Score=0.4400 tf_p=0.39
+  E 15: loss=1.9145 F1_act=0.4049 F1_pt=0.2051 Score=0.4440 tf_p=0.33
+  E 20: loss=1.9071 F1_act=0.4119 F1_pt=0.2058 Score=0.4471 tf_p=0.26
+  E 25: loss=1.8935 F1_act=0.4201 F1_pt=0.2086 Score=0.4515 tf_p=0.20
+  E 30: loss=1.8651 F1_act=0.4250 F1_pt=0.2199 Score=0.4580 tf_p=0.14
+  E 35: loss=1.8387 F1_act=0.4255 F1_pt=0.2277 Score=0.4613 tf_p=0.08
+  E 40: loss=1.8217 F1_act=0.4260 F1_pt=0.2338 Score=0.4639 tf_p=0.01
+  E 45: loss=1.8073 F1_act=0.4234 F1_pt=0.2325 Score=0.4624 tf_p=0.00
+  E 50: loss=1.7933 F1_act=0.4235 F1_pt=0.2338 Score=0.4629 tf_p=0.00
+  Fold 1 best: 0.4651
+  LGB Train: 55529, Val: 14183
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[170]	valid_0's multi_logloss: 1.24174
+  LGB actionId: F1=0.3950 (best_iter=170)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[116]	valid_0's multi_logloss: 1.73456
+  LGB pointId: F1=0.2170 (best_iter=116)
+  Ensemble F1_act=0.4192 F1_pt=0.2341 Score=0.4613
+
+──────────────────────────────────────────────────
+Fold 2/5
+  LSTM Train: 55886, Val: 13826
+  E  1: loss=2.5320 F1_act=0.2264 F1_pt=0.1428 Score=0.3477 tf_p=0.50
+  E  5: loss=2.0879 F1_act=0.4044 F1_pt=0.2065 Score=0.4443 tf_p=0.45
+  E 10: loss=1.9593 F1_act=0.4423 F1_pt=0.2133 Score=0.4622 tf_p=0.39
+  E 15: loss=1.9209 F1_act=0.4620 F1_pt=0.2230 Score=0.4740 tf_p=0.33
+  E 20: loss=1.9114 F1_act=0.4613 F1_pt=0.2246 Score=0.4744 tf_p=0.26
+  E 25: loss=1.9036 F1_act=0.4702 F1_pt=0.2283 Score=0.4794 tf_p=0.20
+  E 30: loss=1.8760 F1_act=0.4715 F1_pt=0.2377 Score=0.4837 tf_p=0.14
+  E 35: loss=1.8535 F1_act=0.4827 F1_pt=0.2352 Score=0.4871 tf_p=0.08
+  E 40: loss=1.8324 F1_act=0.4782 F1_pt=0.2322 Score=0.4841 tf_p=0.01
+  E 45: loss=1.8188 F1_act=0.4851 F1_pt=0.2379 Score=0.4892 tf_p=0.00
+  E 50: loss=1.8039 F1_act=0.4794 F1_pt=0.2414 Score=0.4884 tf_p=0.00
+  Fold 2 best: 0.4892
+  LGB Train: 55886, Val: 13826
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[77]	valid_0's multi_logloss: 1.27773
+  LGB actionId: F1=0.3959 (best_iter=77)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[132]	valid_0's multi_logloss: 1.71267
+  LGB pointId: F1=0.2331 (best_iter=132)
+  Ensemble F1_act=0.4293 F1_pt=0.2449 Score=0.4697
+
+──────────────────────────────────────────────────
+Fold 3/5
+  LSTM Train: 55831, Val: 13881
+  E  1: loss=2.5561 F1_act=0.1881 F1_pt=0.1237 Score=0.3247 tf_p=0.50
+  E  5: loss=2.0746 F1_act=0.3881 F1_pt=0.1859 Score=0.4296 tf_p=0.45
+  E 10: loss=1.9514 F1_act=0.4322 F1_pt=0.1960 Score=0.4513 tf_p=0.39
+  E 15: loss=1.9138 F1_act=0.4385 F1_pt=0.2059 Score=0.4578 tf_p=0.33
+  E 20: loss=1.9020 F1_act=0.4399 F1_pt=0.2062 Score=0.4585 tf_p=0.26
+  E 25: loss=1.8942 F1_act=0.4543 F1_pt=0.2082 Score=0.4650 tf_p=0.20
+  E 30: loss=1.8683 F1_act=0.4517 F1_pt=0.2250 Score=0.4707 tf_p=0.14
+  E 35: loss=1.8451 F1_act=0.4547 F1_pt=0.2243 Score=0.4716 tf_p=0.08
+  E 40: loss=1.8262 F1_act=0.4578 F1_pt=0.2287 Score=0.4746 tf_p=0.01
+  E 45: loss=1.8077 F1_act=0.4569 F1_pt=0.2347 Score=0.4766 tf_p=0.00
+  E 50: loss=1.7953 F1_act=0.4538 F1_pt=0.2382 Score=0.4768 tf_p=0.00
+  Fold 3 best: 0.4777
+  LGB Train: 55831, Val: 13881
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[236]	valid_0's multi_logloss: 1.24826
+  LGB actionId: F1=0.3770 (best_iter=236)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[135]	valid_0's multi_logloss: 1.71289
+  LGB pointId: F1=0.2238 (best_iter=135)
+  Ensemble F1_act=0.4089 F1_pt=0.2365 Score=0.4582
+
+──────────────────────────────────────────────────
+Fold 4/5
+  LSTM Train: 55858, Val: 13854
+  E  1: loss=2.5414 F1_act=0.2151 F1_pt=0.1381 Score=0.3413 tf_p=0.50
+  E  5: loss=2.0713 F1_act=0.3918 F1_pt=0.1913 Score=0.4332 tf_p=0.45
+  E 10: loss=1.9511 F1_act=0.4253 F1_pt=0.2059 Score=0.4525 tf_p=0.39
+  E 15: loss=1.9138 F1_act=0.4359 F1_pt=0.2139 Score=0.4599 tf_p=0.33
+  E 20: loss=1.9066 F1_act=0.4417 F1_pt=0.2147 Score=0.4626 tf_p=0.26
+  E 25: loss=1.8942 F1_act=0.4487 F1_pt=0.2105 Score=0.4637 tf_p=0.20
+  E 30: loss=1.8685 F1_act=0.4598 F1_pt=0.2337 Score=0.4774 tf_p=0.14
+  E 35: loss=1.8419 F1_act=0.4531 F1_pt=0.2372 Score=0.4761 tf_p=0.08
+Traceback (most recent call last):
+  File "/mnt/c/Users/butte/OneDrive/桌面/code projects/競賽/pingpong/src/train/train_v5z.py", line 828, in <module>
+    lstm_model, lstm_sc = train_lstm_fold(tr_s, va_s, fold, action_w, point_w)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/butte/OneDrive/桌面/code projects/競賽/pingpong/src/train/train_v5z.py", line 670, in train_lstm_fold
+    t_loss += L.item()
+              ^^^^^^^^
+torch.AcceleratorError: CUDA error: unknown error
+Search for `cudaErrorUnknown' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[W502 02:43:26.348864846 CUDAEvent.h:57] Warning: CUDA warning: unknown error (function ~CUDAEvent)

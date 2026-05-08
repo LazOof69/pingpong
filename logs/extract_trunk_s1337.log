@@ -1,0 +1,36 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  5668 rows, 1845 rallies (csv=data/test_new.csv, has_sgp=False)
+  PID test csv (different from inference test): data/test.csv
+  選手數: 189 (PID2IDX from train + data/test.csv)
+======================================================================
+Trunk Extraction — seed 1337
+======================================================================
+Weights tag: v5z_md_full_s1337
+Train rallies: 14995, test rallies: 1845
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+Train samples (augmented): 69712
+Test samples: 1845
+
+--- Fold 1/5 ---  loaded models/v5z/model_v5z_md_full_s1337_lstm_fold1.pt
+  Val samples: 15753  (over 3123 rallies)
+
+--- Fold 2/5 ---  loaded models/v5z/model_v5z_md_full_s1337_lstm_fold2.pt
+  Val samples: 13715  (over 3103 rallies)
+
+--- Fold 3/5 ---  loaded models/v5z/model_v5z_md_full_s1337_lstm_fold3.pt
+  Val samples: 14492  (over 3267 rallies)
+
+--- Fold 4/5 ---  loaded models/v5z/model_v5z_md_full_s1337_lstm_fold4.pt
+  Val samples: 13096  (over 2803 rallies)
+
+--- Fold 5/5 ---  loaded models/v5z/model_v5z_md_full_s1337_lstm_fold5.pt
+  Val samples: 12656  (over 2699 rallies)
+
+→ Saved artifacts/trunk_train_oof_s1337.npz  shape=(69712, 128)
+→ Saved artifacts/trunk_test_NEWTEST_s1337.npz  shape=(1845, 128)

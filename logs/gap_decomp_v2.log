@@ -1,0 +1,123 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+==============================================================================
+GAP DECOMPOSITION v2 — find REAL source of OOF/LB gap = -0.053
+==============================================================================
+
+Loading OOF artifacts (bag2)...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  α_action=0.64  α_point=0.50
+
+==============================================================================
+H_class17: macro-F1 with labels=range(N) vs default
+==============================================================================
+
+  action labels in OOF: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  point  labels in OOF: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  F1_action  default=0.4389  forced=0.3927  Δ=-0.0462
+  F1_point   default=0.2650  forced=0.2650  Δ=+0.0000
+  CV         default=0.4816  forced=0.4631  Δ=-0.0185
+  → If LB uses labels=range(N), gap contribution: -0.0185
+
+==============================================================================
+H_player: player overlap train vs test
+==============================================================================
+
+  train unique players: 166
+  test  unique players: 63
+  test players ALSO in train: 40 (63.5%)
+  test players NEVER in train: 23
+    sample unseen ids: [131, 132, 15, 16, 149, 25, 156, 157, 159, 38]
+
+  test rallies both players seen: 666 / 1236 (53.9%)
+  test rallies one player unseen:  570
+
+  Top 10 most frequent test players' train frequency:
+    pid=   31  test= 268  train= 2922  test/train=0.0917
+    pid=   61  test= 212  train= 2297  test/train=0.0923
+    pid=   39  test= 189  train= 2401  test/train=0.0787
+    pid=   26  test= 138  train= 5441  test/train=0.0254
+    pid=    8  test= 138  train= 6127  test/train=0.0225
+    pid=   14  test= 129  train= 1400  test/train=0.0921
+    pid=   36  test= 123  train= 2486  test/train=0.0495
+    pid=   35  test= 117  train= 2020  test/train=0.0579
+    pid=  148  test= 110  train=  395  test/train=0.2785
+    pid=   56  test= 103  train=  928  test/train=0.1110
+    pid=   49  test= 100  train= 1844  test/train=0.0542
+    pid=   38  test=  93  train=    0  test/train=93.0000
+    pid=   17  test=  87  train=  443  test/train=0.1964
+    pid=   75  test=  77  train=    0  test/train=77.0000
+    pid=   69  test=  76  train=    0  test/train=76.0000
+
+==============================================================================
+H_match: test match overlap with train
+==============================================================================
+
+  train matches: 216
+  test  matches: 55
+  overlap: 0 (0.0%)
+  test matches NEVER in train: 55
+
+==============================================================================
+H_class_dist: train rally last-stroke vs test 'last visible' stroke distribution
+==============================================================================
+
+  Action distribution (train last-stroke vs test last-VISIBLE-stroke):
+   class     train      test      diff
+       0    0.1364    0.0518   -0.0847
+       1    0.1815    0.1675   -0.0141
+       2    0.1143    0.0469   -0.0674
+       3    0.0310    0.0178   -0.0132
+       4    0.0281    0.0534   +0.0253
+       5    0.0682    0.0372   -0.0309
+       6    0.0902    0.0558   -0.0343
+       7    0.0188    0.0283   +0.0095
+       8    0.0037    0.0024   -0.0013
+       9    0.0080    0.0089   +0.0009
+      10    0.0485    0.0947   +0.0461
+      11    0.0163    0.0639   +0.0476
+      12    0.0319    0.0340   +0.0021
+      13    0.2124    0.0639   -0.1485
+      14    0.0105    0.0024   -0.0081
+      15    0.0000    0.1901   +0.1901
+      16    0.0001    0.0591   +0.0590
+      17    0.0000    0.0170   +0.0170
+      18    0.0000    0.0049   +0.0049
+
+  Point distribution (train last-stroke vs test last-VISIBLE-stroke):
+   class     train      test      diff
+       0    0.9999    0.0057   -0.9942
+       1    0.0001    0.0396   +0.0395
+       2    0.0000    0.0825   +0.0825
+       3    0.0000    0.0146   +0.0146
+       4    0.0000    0.0688   +0.0688
+       5    0.0000    0.1416   +0.1416
+       6    0.0000    0.0518   +0.0518
+       7    0.0000    0.1254   +0.1254
+       8    0.0000    0.1788   +0.1788
+       9    0.0000    0.2913   +0.2913
+
+==============================================================================
+DECOMPOSITION SUMMARY
+==============================================================================
+
+  Observed OOF→LB gap: 0.4816 - 0.4285 = -0.0531
+
+  Hypotheses ranked by likely contribution:
+    H_class17  (forced labels):   Δ_CV = -0.0185
+    H_player   (overlap):         see above stats
+    H_match    (match overlap):   0% test matches in train
+    H_class_dist:                 see distribution table
+    H_residual (length already ruled out, ~+0.000)

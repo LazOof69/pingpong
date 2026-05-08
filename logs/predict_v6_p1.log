@@ -1,0 +1,91 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+============================================================
+V6 Phase 1 推論：V5 模型 + plug-in bias + per-task weights
+============================================================
+載入 params: w_a=0.35 w_p=0.35
+  bias_a: [0.4, -0.2, -0.2, 0.5, -0.1, 0.2, 0.0, 0.3, 0.7, 0.3, -0.2, 0.0, -0.2, -0.2, 0.3, -1.2, -1.9, 0.0, 0.0]
+  bias_p: [-0.2, 0.3, -0.0, 1.5, 0.4, 0.1, 0.0, 0.2, 0.1, -0.1]
+
+準備 samples + features...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  train samples: 69712, test samples: 1236 (8.0s)
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  LGB features: train=(69712, 49) test=(1236, 49) (8.9s)
+
+1) LSTM fold 推論（載入 model_v5_lstm_fold*.pt）...
+  fold 1 LSTM 完成
+  fold 2 LSTM 完成
+  fold 3 LSTM 完成
+  fold 4 LSTM 完成
+  fold 5 LSTM 完成
+
+2) LGB fold 重訓並推論（使用真實 CV split 做 early stopping）...
+
+  fold 1/5
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[223]	valid_0's multi_logloss: 1.22548
+  LGB actionId: F1=0.3949 (best_iter=223)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[246]	valid_0's multi_logloss: 1.63973
+  LGB pointId: F1=0.2430 (best_iter=246)
+
+  fold 2/5
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[184]	valid_0's multi_logloss: 1.2051
+  LGB actionId: F1=0.4099 (best_iter=184)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[180]	valid_0's multi_logloss: 1.61209
+  LGB pointId: F1=0.2592 (best_iter=180)
+
+  fold 3/5
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[208]	valid_0's multi_logloss: 1.21487
+  LGB actionId: F1=0.3778 (best_iter=208)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[207]	valid_0's multi_logloss: 1.61369
+  LGB pointId: F1=0.2480 (best_iter=207)
+
+  fold 4/5
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[210]	valid_0's multi_logloss: 1.23303
+  LGB actionId: F1=0.3880 (best_iter=210)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[196]	valid_0's multi_logloss: 1.60445
+  LGB pointId: F1=0.2618 (best_iter=196)
+
+  fold 5/5
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[113]	valid_0's multi_logloss: 1.2423
+  LGB actionId: F1=0.3833 (best_iter=113)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[176]	valid_0's multi_logloss: 1.63032
+  LGB pointId: F1=0.2484 (best_iter=176)
+
+3) 組合 + plug-in 校準...
+
+============================================================
+提交檔案: submission_v6.csv (1236 筆)
+  actionId: {0: 51, 1: 327, 2: 71, 3: 20, 4: 57, 5: 69, 6: 131, 7: 46, 8: 3, 9: 22, 10: 169, 11: 85, 12: 28, 13: 153, 14: 4}
+  pointId:  {0: 351, 1: 6, 2: 56, 3: 2, 4: 19, 5: 86, 6: 14, 7: 121, 8: 198, 9: 383}
+============================================================

@@ -1,0 +1,84 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+
+==============================================================================
+Phase+EFOS+AOEL LGB retrain (match-disjoint), seed=42
+==============================================================================
+
+Reusing match-disjoint LSTM artifacts: artifacts/v5z_md_full_s42_oof.npz
+
+Building LGB features (V5Z_PHASE=1)...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features: 58 cols, 17.4s
+  NEW phase columns (10): ['next_phase', 'next_in_initial_offensive', 'fos_idx', 'strokes_since_fos', 'prefix_has_fos', 'last_was_half_long', 'prefix_half_long_count', 'next_side_is_server', 'server_strokes_count', 'receiver_strokes_count']
+
+Reproducing match-disjoint fold split...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+
+Training LGB (5 folds, match-disjoint, with phase+EFOS+AOEL features)
+──────────────────────────────────────────────────────────────────────
+  fold 1: train=57619, val=12093
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[120]	valid_0's multi_logloss: 1.45167
+  LGB action: F1=0.2942 (best_iter=120)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[95]	valid_0's multi_logloss: 1.7439
+  LGB point: F1=0.1759 (best_iter=95)
+  fold 1: action F1=0.2942  point F1=0.1759
+  fold 2: train=57089, val=12623
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[136]	valid_0's multi_logloss: 1.31591
+  LGB action: F1=0.3135 (best_iter=136)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[90]	valid_0's multi_logloss: 1.7481
+  LGB point: F1=0.1977 (best_iter=90)
+  fold 2: action F1=0.3135  point F1=0.1977
+  fold 3: train=55575, val=14137
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[169]	valid_0's multi_logloss: 1.57673
+  LGB action: F1=0.2953 (best_iter=169)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.80576
+  LGB point: F1=0.1647 (best_iter=83)
+  fold 3: action F1=0.2953  point F1=0.1647
+  fold 4: train=56048, val=13664
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[93]	valid_0's multi_logloss: 1.45626
+  LGB action: F1=0.3083 (best_iter=93)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[84]	valid_0's multi_logloss: 1.78678
+  LGB point: F1=0.1707 (best_iter=84)
+  fold 4: action F1=0.3083  point F1=0.1707
+  fold 5: train=52517, val=17195
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[136]	valid_0's multi_logloss: 1.44652
+  LGB action: F1=0.2979 (best_iter=136)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[92]	valid_0's multi_logloss: 1.77612
+  LGB point: F1=0.1859 (best_iter=92)
+  fold 5: action F1=0.2979  point F1=0.1859
+
+  Mean LGB-only F1: action=0.3018  point=0.1790
+
+Saved: artifacts/v5z_mdph_full_s42_oof.npz
+Saved: artifacts/v5z_mdph_full_s42_test.npz

@@ -1,0 +1,101 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+======================================================================
+V7 P3 · TS-lens LGB (lag + transition TE)
+======================================================================
+
+[1] prepare_samples ...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+    train=69712 test=1236 (9.4s)
+
+[2] base LGB features ...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+    base: train=(69712, 49) test=(1236, 49) (10.0s)
+
+[3] lag features ...
+    lag: train=(69712, 6) test=(1236, 6) (7.3s)
+
+[4] transition TE (last_action → next_action / next_point) ...
+    TE shape: action=(69712, 19) point=(69712, 10) (0.5s)
+    enhanced: train=(69712, 84) test=(1236, 84)
+
+[5] LSTM test preds (15 models) ...
+    LSTM test preds done (6.6s)
+
+[6] Train 5-fold LGB (enhanced feats) ...
+
+  fold 1/5  tr=55529 va=14183
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[20]	valid_0's multi_logloss: 1.63164
+  LGB actionId: F1=0.3030 (best_iter=20)
+    action LGB (4.9s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[269]	valid_0's multi_logloss: 1.63793
+  LGB pointId: F1=0.2360 (best_iter=269)
+    point  LGB (23.3s)
+
+  fold 2/5  tr=55886 va=13826
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[10]	valid_0's multi_logloss: 1.83782
+  LGB actionId: F1=0.2691 (best_iter=10)
+    action LGB (6.0s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[221]	valid_0's multi_logloss: 1.61182
+  LGB pointId: F1=0.2563 (best_iter=221)
+    point  LGB (19.2s)
+
+  fold 3/5  tr=55831 va=13881
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[24]	valid_0's multi_logloss: 1.63044
+  LGB actionId: F1=0.3273 (best_iter=24)
+    action LGB (7.5s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[154]	valid_0's multi_logloss: 1.61814
+  LGB pointId: F1=0.2499 (best_iter=154)
+    point  LGB (15.1s)
+
+  fold 4/5  tr=55858 va=13854
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[111]	valid_0's multi_logloss: 1.52947
+  LGB actionId: F1=0.3660 (best_iter=111)
+    action LGB (18.9s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[244]	valid_0's multi_logloss: 1.60016
+  LGB pointId: F1=0.2575 (best_iter=244)
+    point  LGB (18.3s)
+
+  fold 5/5  tr=55744 va=13968
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[112]	valid_0's multi_logloss: 1.24346
+  LGB actionId: F1=0.3713 (best_iter=112)
+    action LGB (19.6s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[204]	valid_0's multi_logloss: 1.62583
+  LGB pointId: F1=0.2444 (best_iter=204)
+    point  LGB (18.6s)
+
+[7] Raw OOF:  P3 LGB F1_a=0.3248 F1_p=0.2491
+   V5 LGB base: F1_a=0.3903 F1_p=0.2523
+
+→ saved v7_p3_oof.npz + v7_p3_test.npz
+TOTAL: 3.1 min

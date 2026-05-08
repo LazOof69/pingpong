@@ -1,0 +1,125 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+======================================================================
+V7 P2 · feature ablation  tag=v7_p2b  xtask=False mom=True te=True
+======================================================================
+
+[1] Preparing samples...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+    train=69712, test=1236 (8.1s)
+
+[2] CV split + OOF alignment...
+    sample_fold built; 69712 samples mapped to OOF order
+
+[3] Loading v7_oof.npz for cross-task + labels...
+    OOF → sample reindex verified (labels match)
+
+[4] Building base LGB features...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+    base: train=(69712, 49) test=(1236, 49) (8.4s)
+
+[5] Momentum features...
+    mom: train=(69712, 6) test=(1236, 6) (7.9s)
+
+[6] LSTM test predictions (15 models)...
+    LSTM test preds done (5.2s)
+
+[7] Target encoding on (last_action, last_point) ...
+    TE shape: action=(69712, 19) point=(69712, 10) (0.5s)
+
+[8] Assembling enhanced feature frames...
+    action model: train=(69712, 74) test=(1236, 74)
+    point  model: train=(69712, 65) test=(1236, 65)
+
+[9] Training 5-fold LGB (action + point) on enhanced features...
+
+  fold 1/5  train=55529  val=14183
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[56]	valid_0's multi_logloss: 1.37356
+  LGB actionId: F1=0.3492 (best_iter=56)
+    action LGB done (7.2s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[151]	valid_0's multi_logloss: 1.64974
+  LGB pointId: F1=0.2276 (best_iter=151)
+    point  LGB done (9.2s)
+
+  fold 2/5  train=55886  val=13826
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[11]	valid_0's multi_logloss: 1.81112
+  LGB actionId: F1=0.2760 (best_iter=11)
+    action LGB done (2.7s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[228]	valid_0's multi_logloss: 1.61584
+  LGB pointId: F1=0.2489 (best_iter=228)
+    point  LGB done (15.2s)
+
+  fold 3/5  train=55831  val=13881
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[298]	valid_0's multi_logloss: 1.32371
+  LGB actionId: F1=0.3860 (best_iter=298)
+    action LGB done (38.9s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[180]	valid_0's multi_logloss: 1.61875
+  LGB pointId: F1=0.2415 (best_iter=180)
+    point  LGB done (13.0s)
+
+  fold 4/5  train=55858  val=13854
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[74]	valid_0's multi_logloss: 1.76756
+  LGB actionId: F1=0.3517 (best_iter=74)
+    action LGB done (11.7s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[222]	valid_0's multi_logloss: 1.60848
+  LGB pointId: F1=0.2544 (best_iter=222)
+    point  LGB done (14.9s)
+
+  fold 5/5  train=55744  val=13968
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[16]	valid_0's multi_logloss: 1.69521
+  LGB actionId: F1=0.3041 (best_iter=16)
+    action LGB done (5.3s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[237]	valid_0's multi_logloss: 1.63483
+  LGB pointId: F1=0.2403 (best_iter=237)
+    point  LGB done (16.7s)
+
+[10] Raw OOF (no calibration) ...
+    P2 LGB F1_a=0.3266  F1_p=0.2431
+    V7 LGB base F1_a=0.3903  F1_p=0.2523
+
+[11] Calibration search on bagged-LSTM + P2-LGB ensemble...
+    action: w_a=0.70 F1_a=0.4303 (220.0s)
+    point:  w_p=0.35 F1_p=0.2806 (88.2s)
+
+======================================================================
+V7 P2 CV Score: 0.4844  (F1_a=0.4303, F1_p=0.2806)
+V7 baseline:    0.4883 (F1_a=0.4387, F1_p=0.2820)
+Δ:              -0.0039
+======================================================================
+
+[12] Saving artifacts + submission...
+    submissions/submission_v7_p2b.csv (1236 筆)
+    action dist: {0: 36, 1: 323, 2: 69, 3: 15, 4: 68, 5: 101, 6: 115, 7: 36, 8: 2, 9: 21, 10: 162, 11: 95, 12: 26, 13: 162, 14: 5}
+    point  dist: {0: 398, 1: 4, 2: 68, 3: 7, 4: 25, 5: 63, 6: 15, 7: 165, 8: 159, 9: 332}
+
+TOTAL: 7.9 min

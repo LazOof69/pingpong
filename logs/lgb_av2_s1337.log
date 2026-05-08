@@ -1,0 +1,136 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+
+==============================================================================
+A v2 Full — historical player stats, seed=1337
+==============================================================================
+
+Reusing LSTM artifacts: artifacts/v5z_s1337_oof.npz, artifacts/v5z_s1337_test.npz
+
+Reproducing fold split...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+
+──────────────────────────────────────────────────────────────────────
+num_leaves sweep on fold 1 (action only, [63, 127, 255])
+──────────────────────────────────────────────────────────────────────
+  Computing player_stats from 11996 train uids...
+  player_stats: 166 players, 0.2s
+  Building LGB features (V5Z_AV2=1) with per-fold player_stats...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features: 80 cols, 9.5s
+  new AV2 columns (32): ['srv_attack_ratio', 'rcv_attack_ratio', 'srv_control_ratio', 'rcv_control_ratio', 'srv_defense_ratio']...['srv_seen', 'rcv_seen', 'srv_rcv_seen_combo']
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[29]	valid_0's multi_logloss: 1.39138
+  num_leaves=63: action F1=0.4400 (5.0s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[25]	valid_0's multi_logloss: 1.33282
+  num_leaves=127: action F1=0.4407 (7.0s)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[26]	valid_0's multi_logloss: 1.38661
+  num_leaves=255: action F1=0.4179 (8.5s)
+  → best num_leaves: 127 (F1=0.4407)
+
+══════════════════════════════════════════════════════════════════════
+Full 5-fold training with num_leaves=127
+══════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+Fold 1/5
+  player_stats: 166 players, 0.2s
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features built: 8.8s
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[25]	valid_0's multi_logloss: 1.33282
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[61]	valid_0's multi_logloss: 1.68911
+  fold 1: action F1=0.4407  point F1=0.2495
+
+────────────────────────────────────────────────────────────
+Fold 2/5
+  player_stats: 165 players, 0.2s
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features built: 8.8s
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[18]	valid_0's multi_logloss: 1.45411
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[62]	valid_0's multi_logloss: 1.6838
+  fold 2: action F1=0.3821  point F1=0.2426
+
+────────────────────────────────────────────────────────────
+Fold 3/5
+  player_stats: 164 players, 0.2s
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features built: 9.8s
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[18]	valid_0's multi_logloss: 1.44582
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[63]	valid_0's multi_logloss: 1.68987
+  fold 3: action F1=0.3950  point F1=0.2475
+
+────────────────────────────────────────────────────────────
+Fold 4/5
+  player_stats: 166 players, 0.2s
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features built: 9.2s
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[24]	valid_0's multi_logloss: 1.36939
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[62]	valid_0's multi_logloss: 1.69871
+  fold 4: action F1=0.3786  point F1=0.2426
+
+────────────────────────────────────────────────────────────
+Fold 5/5
+  player_stats: 166 players, 0.2s
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features built: 9.0s
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[30]	valid_0's multi_logloss: 1.3372
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[66]	valid_0's multi_logloss: 1.70661
+  fold 5: action F1=0.4139  point F1=0.2380
+
+  Mean LGB-only F1: action=0.4021  point=0.2440
+
+Saved: artifacts/v5z_av2_s1337_oof.npz
+Saved: artifacts/v5z_av2_s1337_test.npz
+Best num_leaves: 127
+
+Next: V5Z_TAG_PREFIX=v5z_av2 V5Z_SEEDS=1337 python3 src/train/advcal_v5z.py

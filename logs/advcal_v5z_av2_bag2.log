@@ -1,0 +1,42 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+======================================================================
+V5-Z Advanced Calibration: bagging + plug-in additive log-bias
+======================================================================
+Seeds: ['42', '1337']
+Reindexing OOFs to sample-idx canonical order...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+Action classes: 19, Point classes: 10
+OOF samples: 69712
+
+Raw component (bagged across seeds):
+  LSTM  action F1=0.4235  point F1=0.2421
+  LGB   action F1=0.3875  point F1=0.2463
+
+Search scalar α (ens = α*LSTM + (1-α)*LGB), step=0.01:
+  action α=0.53  raw F1_a=0.4312
+  point  α=0.50  raw F1_p=0.2559
+
+Plug-in additive log-bias (per-class):
+  action F1_a=0.4396  bias_a=[ 0.4  -0.1  -0.1   0.4  -0.1   0.4   0.25  0.15  0.3   0.25  0.    0.
+ -0.25  0.   -0.05  0.1  -2.5   0.    0.  ]
+  point  F1_p=0.2748  bias_p=[-0.25  0.15  0.    1.35  0.1   0.1  -0.2   0.2   0.15 -0.05]
+
+Final OOF CV: 0.4858
+
+Submission: submissions/submission_v5z_av2_advcal_bag2.csv  (1236 rows)
+
+→ Compare:
+  baseline floor (epoch5): 0.4143
+  V5Z bag2 additive cal: 0.4858

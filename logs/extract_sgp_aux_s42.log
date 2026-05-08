@@ -1,0 +1,30 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  5668 rows, 1845 rallies (csv=data/test_new.csv, has_sgp=False)
+  選手數: 197 (PID2IDX from train + data/test_new.csv)
+======================================================================
+Extract sgp_aux predictions — seed 42
+======================================================================
+Weights tag: v5z_md_sgpaux_s42
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+Train samples: 69712, test samples: 1845
+
+--- Fold 1/5 ---  loaded models/v5z/model_v5z_md_sgpaux_s42_lstm_fold1.pt
+
+--- Fold 2/5 ---  loaded models/v5z/model_v5z_md_sgpaux_s42_lstm_fold2.pt
+
+--- Fold 3/5 ---  loaded models/v5z/model_v5z_md_sgpaux_s42_lstm_fold3.pt
+
+--- Fold 4/5 ---  loaded models/v5z/model_v5z_md_sgpaux_s42_lstm_fold4.pt
+
+--- Fold 5/5 ---  loaded models/v5z/model_v5z_md_sgpaux_s42_lstm_fold5.pt
+
+OOF sgp AUC: per-sample 0.5836, per-rally aggregated 0.7706
+
+→ Saved artifacts/sgp_aux_train_oof_s42.npz
+→ Saved artifacts/sgp_aux_test_NEWTEST_s42.npz

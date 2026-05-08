@@ -1,0 +1,152 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  5668 rows, 1845 rallies (csv=data/test_new.csv, has_sgp=False)
+  選手數: 197 (PID2IDX from train + data/test_new.csv)
+
+============================================================
+準備資料...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  LSTM 訓練樣本: 69712
+  LSTM 測試樣本: 1845
+建立 LGB 特徵...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  LGB 特徵: 48 個
+  準備完成 (16.8s)
+
+  actionId weights: {0: 0.426, 1: 0.155, 2: 0.242, 3: 0.418, 4: 0.376, 5: 0.298, 6: 0.237, 7: 0.513, 8: 1.0, 9: 0.684, 10: 0.182, 11: 0.325, 12: 0.287, 13: 0.218, 14: 0.779}
+  pointId weights:  {0: 0.115, 1: 0.591, 2: 0.325, 3: 1.0, 4: 0.26, 5: 0.176, 6: 0.21, 7: 0.149, 8: 0.128, 9: 0.112}
+
+============================================================
+開始 5-fold CV (V5: LSTM+LGB Ensemble)
+  CV: StratifiedGroupKFold by match_id (match-disjoint)
+    fold 1: 172 train matches | 44 val matches
+    fold 2: 173 train matches | 43 val matches
+    fold 3: 174 train matches | 42 val matches
+    fold 4: 174 train matches | 42 val matches
+    fold 5: 171 train matches | 45 val matches
+
+──────────────────────────────────────────────────
+Fold 1/5
+  LSTM Train: 57619, Val: 12093
+  E  1: loss=0.6862 F1_act=0.0209 F1_pt=0.0461 Score=0.5835 sgp_AUC=0.5835 tf_p=0.50
+  E  5: loss=0.6178 F1_act=0.0213 F1_pt=0.0466 Score=0.5697 sgp_AUC=0.5697 tf_p=0.45
+  E 10: loss=0.5648 F1_act=0.0211 F1_pt=0.0469 Score=0.5616 sgp_AUC=0.5616 tf_p=0.39
+  Early stop at epoch 11
+  Fold 1 best: 0.5835
+  LGB Train: 57619, Val: 12093
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[121]	valid_0's multi_logloss: 1.49431
+  LGB actionId: F1=0.2895 (best_iter=121)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[82]	valid_0's multi_logloss: 1.74505
+  LGB pointId: F1=0.1671 (best_iter=82)
+  Ensemble F1_act=0.2896 F1_pt=0.1736 Score=0.3853
+
+──────────────────────────────────────────────────
+Fold 2/5
+  LSTM Train: 57089, Val: 12623
+  E  1: loss=0.6849 F1_act=0.0136 F1_pt=0.0530 Score=0.5805 sgp_AUC=0.5805 tf_p=0.50
+  E  5: loss=0.6206 F1_act=0.0155 F1_pt=0.0470 Score=0.5709 sgp_AUC=0.5709 tf_p=0.45
+  E 10: loss=0.5728 F1_act=0.0123 F1_pt=0.0414 Score=0.5651 sgp_AUC=0.5651 tf_p=0.39
+  Early stop at epoch 11
+  Fold 2 best: 0.5805
+  LGB Train: 57089, Val: 12623
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[93]	valid_0's multi_logloss: 1.35178
+  LGB actionId: F1=0.3074 (best_iter=93)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[92]	valid_0's multi_logloss: 1.74913
+  LGB pointId: F1=0.2054 (best_iter=92)
+  Ensemble F1_act=0.3075 F1_pt=0.2065 Score=0.4056
+
+──────────────────────────────────────────────────
+Fold 3/5
+  LSTM Train: 55575, Val: 14137
+  E  1: loss=0.6863 F1_act=0.0422 F1_pt=0.0417 Score=0.5723 sgp_AUC=0.5723 tf_p=0.50
+  E  5: loss=0.6334 F1_act=0.0459 F1_pt=0.0393 Score=0.5710 sgp_AUC=0.5710 tf_p=0.45
+  E 10: loss=0.5811 F1_act=0.0405 F1_pt=0.0383 Score=0.5538 sgp_AUC=0.5538 tf_p=0.39
+  Early stop at epoch 13
+  Fold 3 best: 0.5857
+  LGB Train: 55575, Val: 14137
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[56]	valid_0's multi_logloss: 1.5648
+  LGB actionId: F1=0.3047 (best_iter=56)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.80407
+  LGB pointId: F1=0.1637 (best_iter=83)
+  Ensemble F1_act=0.3039 F1_pt=0.1633 Score=0.3869
+
+──────────────────────────────────────────────────
+Fold 4/5
+  LSTM Train: 56048, Val: 13664
+  E  1: loss=0.6846 F1_act=0.0159 F1_pt=0.0239 Score=0.5934 sgp_AUC=0.5934 tf_p=0.50
+  E  5: loss=0.6186 F1_act=0.0199 F1_pt=0.0141 Score=0.5791 sgp_AUC=0.5791 tf_p=0.45
+  E 10: loss=0.5654 F1_act=0.0215 F1_pt=0.0129 Score=0.5842 sgp_AUC=0.5842 tf_p=0.39
+  Early stop at epoch 12
+  Fold 4 best: 0.5964
+  LGB Train: 56048, Val: 13664
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[139]	valid_0's multi_logloss: 1.51701
+  LGB actionId: F1=0.3170 (best_iter=139)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.78637
+  LGB pointId: F1=0.1724 (best_iter=83)
+  Ensemble F1_act=0.3160 F1_pt=0.1744 Score=0.3962
+
+──────────────────────────────────────────────────
+Fold 5/5
+  LSTM Train: 52517, Val: 17195
+  E  1: loss=0.6872 F1_act=0.0280 F1_pt=0.0265 Score=0.5904 sgp_AUC=0.5904 tf_p=0.50
+  E  5: loss=0.6195 F1_act=0.0275 F1_pt=0.0192 Score=0.5767 sgp_AUC=0.5767 tf_p=0.45
+  E 10: loss=0.5729 F1_act=0.0274 F1_pt=0.0219 Score=0.5597 sgp_AUC=0.5597 tf_p=0.39
+  Early stop at epoch 12
+  Fold 5 best: 0.6005
+  LGB Train: 52517, Val: 17195
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[122]	valid_0's multi_logloss: 1.43647
+  LGB actionId: F1=0.2974 (best_iter=122)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.77601
+  LGB pointId: F1=0.1789 (best_iter=83)
+  Ensemble F1_act=0.2960 F1_pt=0.1775 Score=0.3894
+
+============================================================
+OOF Ensemble 校準...
+
+  搜尋最佳 ensemble 權重...
+  最佳 LSTM 權重: 0.65, Score: 0.3955
+
+  actionId 校準:
+
+  pointId 校準:
+
+  最終校準 CV: F1_act=0.3336 F1_pt=0.2174 Score=0.4204
+
+============================================================
+生成測試預測...
+  [WARN] Test CSV has no serverGetPoint column → submission uses 0.5 placeholder. Replace via predict_sgp before LB.
+
+提交檔案: submission_v5z_md_sgponly_s42.csv
+  共 1845 筆
+  actionId: {0: 64, 1: 430, 2: 136, 3: 32, 4: 84, 5: 156, 6: 192, 7: 57, 8: 12, 9: 26, 10: 232, 11: 115, 12: 52, 13: 234, 14: 3, 16: 20}
+  pointId:  {0: 366, 1: 7, 2: 83, 4: 24, 5: 133, 6: 22, 7: 308, 8: 350, 9: 552}
+
+完成!

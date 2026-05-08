@@ -1,0 +1,73 @@
+======================================================================
+Phase 2 LGB-quick V2: serverGetPoint Predictor (prefix-augmented)
+======================================================================
+Test CSV: data/test_new.csv, κ=50, n_folds=5, max_prefix=5
+Train: 84707 rows, 14995 rallies
+Test:  5668 rows, 1845 rallies
+
+--- Fold 1/5 ---
+  Tr samples: 42537 (from 12227 rallies), Va: 9214 (from 2768 rallies), features: 39
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[15]	valid_0's auc: 0.592553
+  Fold 1 prefix-AUC: 0.5926, best_iter: 15
+
+--- Fold 2/5 ---
+  Tr samples: 39644 (from 11540 rallies), Va: 12107 (from 3455 rallies), features: 39
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[15]	valid_0's auc: 0.588778
+  Fold 2 prefix-AUC: 0.5888, best_iter: 15
+
+--- Fold 3/5 ---
+  Tr samples: 41876 (from 12210 rallies), Va: 9875 (from 2785 rallies), features: 39
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[44]	valid_0's auc: 0.597494
+  Fold 3 prefix-AUC: 0.5975, best_iter: 44
+
+--- Fold 4/5 ---
+  Tr samples: 40609 (from 11760 rallies), Va: 11142 (from 3235 rallies), features: 39
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[87]	valid_0's auc: 0.587964
+  Fold 4 prefix-AUC: 0.5880, best_iter: 87
+
+--- Fold 5/5 ---
+  Tr samples: 42338 (from 12243 rallies), Va: 9413 (from 2752 rallies), features: 39
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[132]	valid_0's auc: 0.61154
+  Fold 5 prefix-AUC: 0.6115, best_iter: 132
+
+======================================================================
+OOF AUC (per-rally aggregated, match-disjoint): 0.6451
+
+Top 15 features by gain (last fold):
+          feature   importance
+     rcv_loserate 16106.128922
+      srv_winrate  9736.857122
+  last_strengthId  6263.375916
+          ctx_len  5870.554845
+        srv_n_obs  4487.787657
+        rcv_n_obs  3986.766695
+ score_diff_start  3635.815159
+    n_rcv_attacks  3613.413310
+  score_sum_start  3273.649545
+ score_self_start  2822.481798
+    n_srv_attacks  2766.516779
+       numberGame  2672.215163
+score_other_start  2502.939249
+    last_actionId  1505.366560
+    prev_actionId  1365.503531
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5259, std: 0.0606
+  Pred range: [0.3688, 0.7230]
+
+→ Saved artifacts/sgp_pred_NEWTEST_lgb_quick.npz
+   Holdout AUC: 0.6451
+
+--- Acceptance gate ---
+  AUC 0.6451 in [0.55, 0.65) → ship LGB-quick alone (good)

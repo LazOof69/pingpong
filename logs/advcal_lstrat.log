@@ -1,0 +1,52 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies (csv=data/test.csv, has_sgp=True)
+  選手數: 189 (PID2IDX from train + data/test.csv)
+==============================================================================
+Length-stratified plug-in bias calibration
+==============================================================================
+Seeds: ['42', '1337'], prefix: v5z_md_full_NEWTEST, sub_suffix: _LSTRAT
+SGP override file: artifacts/sgp_pred_NEWTEST_t3_structural.npz
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+OOF samples: 69712, action=19, point=10
+OOF k distribution: Counter({1: 14995, 2: 13126, 3: 10541, 4: 7511, 5: 5578, 6: 3980, 7: 3006, 8: 2213, 9: 1693, 10: 1314, 11: 1027, 12: 806, 13: 648, 14: 513, 15: 420, 16: 355, 17: 300, 18: 245, 19: 199, 20: 177, 21: 151, 22: 133, 23: 106, 24: 86, 25: 79, 26: 67, 27: 59, 28: 55, 29: 47, 30: 42, 31: 39, 32: 34, 33: 30, 34: 28, 35: 22, 36: 19, 37: 15, 38: 13, 39: 11, 40: 6, 41: 6, 42: 3, 43: 3, 44: 3, 45: 2, 46: 1, 47: 1, 48: 1, 49: 1, 50: 1, 51: 1})
+Test L distribution: 1=398, 2=297, 3=206, ...
+Test bucket weights: [0.32200647 0.24029126 0.16666667 0.09627832 0.17475728]
+
+--- Global alpha search (baseline) ---
+  action α=0.85  raw F1_a=0.3623
+  point  α=0.98  raw F1_p=0.2166
+  Global plug-in: F1_a=0.3679, F1_p=0.2357
+
+--- Per-bucket plug-in bias (alpha global, bias per L bucket) ---
+  Bucket L=1: n=14995, F1_a global=0.3961 → strat=0.4306 (Δ=+0.0345), F1_p global=0.2353 → strat=0.2380 (Δ=+0.0027)
+  Bucket L=2: n=13126, F1_a global=0.3819 → strat=0.4113 (Δ=+0.0294), F1_p global=0.2350 → strat=0.2367 (Δ=+0.0017)
+  Bucket L=3: n=10541, F1_a global=0.3720 → strat=0.4276 (Δ=+0.0557), F1_p global=0.2368 → strat=0.2404 (Δ=+0.0036)
+  Bucket L=4: n=7511, F1_a global=0.3568 → strat=0.4111 (Δ=+0.0543), F1_p global=0.2360 → strat=0.2521 (Δ=+0.0160)
+  Bucket L=5+: n=23539, F1_a global=0.3694 → strat=0.3732 (Δ=+0.0039), F1_p global=0.2344 → strat=0.2355 (Δ=+0.0011)
+
+--- Test-distribution-weighted F1 estimates ---
+  Test-weighted F1_a: global 0.3802 → stratified 0.4136 (Δ=+0.0333)
+  Test-weighted F1_p: global 0.2354 → stratified 0.2390 (Δ=+0.0036)
+  Test-weighted Score: global 0.4462, stratified 0.4610
+  → Δscore from F1 only: +0.0148
+  OOF total (unweighted): F1_a=0.3727 (vs global 0.3679), F1_p=0.2405 (vs global 0.2357)
+
+Final stratified OOF CV (assuming AUC=1.0): 0.4453
+Replaced test_sgp via artifacts/sgp_pred_NEWTEST_t3_structural.npz (method=t3_lgb_R_structural_kappa50_rmax15)
+
+Submission: submissions/submission_v5z_md_advcal_bag2_LSTRAT.csv  (1845 rows)
+
+F1 lift via length-stratified calibration:
+  F1_a: +0.0333
+  F1_p: +0.0036
+  Total score lift (F1 only, ignoring AUC change): +0.0148

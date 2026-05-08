@@ -1,0 +1,80 @@
+========================================================================
+T3: T2 + structural priors + T1 stacking
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+Computing Morris importance lookup...
+Computing score-sequence features (train)...
+  Computed for 14995 train rallies
+Computing score-sequence features (test)...
+  Computed for 1845 test rallies
+Loading T1 OOF + test predictions for stacking...
+  T1 OOF: 14995 train rallies; test: 1845 rallies
+
+Fold 1/5: Tr 42537 samples, Va 9214, total feats=80, T3 new=8: ['prev_point_won_by_server', 'server_run_length', 'cum_strokes_in_match', 'service_block_position', 'morris_importance', 'is_set_point_for_server', 'is_set_point_against', 't1_stacking_pred']
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[125]	valid_0's multi_logloss: 1.78144
+  Fold 1 prefix-AUC: 0.7816, best_iter: 125, T3-new-in-top10: 3/10
+
+Fold 2/5: Tr 39644 samples, Va 12107, total feats=80, T3 new=8: ['prev_point_won_by_server', 'server_run_length', 'cum_strokes_in_match', 'service_block_position', 'morris_importance', 'is_set_point_for_server', 'is_set_point_against', 't1_stacking_pred']
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[74]	valid_0's multi_logloss: 1.84558
+  Fold 2 prefix-AUC: 0.7503, best_iter: 74, T3-new-in-top10: 3/10
+
+Fold 3/5: Tr 41876 samples, Va 9875, total feats=80, T3 new=8: ['prev_point_won_by_server', 'server_run_length', 'cum_strokes_in_match', 'service_block_position', 'morris_importance', 'is_set_point_for_server', 'is_set_point_against', 't1_stacking_pred']
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[99]	valid_0's multi_logloss: 1.87045
+  Fold 3 prefix-AUC: 0.7628, best_iter: 99, T3-new-in-top10: 3/10
+
+Fold 4/5: Tr 40609 samples, Va 11142, total feats=80, T3 new=8: ['prev_point_won_by_server', 'server_run_length', 'cum_strokes_in_match', 'service_block_position', 'morris_importance', 'is_set_point_for_server', 'is_set_point_against', 't1_stacking_pred']
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[66]	valid_0's multi_logloss: 1.84425
+  Fold 4 prefix-AUC: 0.7592, best_iter: 66, T3-new-in-top10: 3/10
+
+Fold 5/5: Tr 42338 samples, Va 9413, total feats=80, T3 new=8: ['prev_point_won_by_server', 'server_run_length', 'cum_strokes_in_match', 'service_block_position', 'morris_importance', 'is_set_point_for_server', 'is_set_point_against', 't1_stacking_pred']
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[94]	valid_0's multi_logloss: 1.83176
+  Fold 5 prefix-AUC: 0.7835, best_iter: 94, T3-new-in-top10: 3/10
+
+========================================================================
+T3 OOF AUC (per-rally aggregated): 0.8164
+
+Top 25 features by gain (last fold):
+                    feature   importance
+           t1_stacking_pred 65815.056835
+          parity_bayes_unif 22187.564600
+       cum_strokes_in_match 16337.404657
+                srv_winrate 14727.438492
+                  srv_n_obs 14099.529065
+               rcv_loserate 13980.141880
+                  rcv_n_obs 13942.287093
+            last_strengthId 13909.506819
+          morris_importance 11140.706795
+                    ctx_len 11050.344185
+            dominance_index  8274.951770
+                  n_attacks  8202.070733
+              last_actionId  7660.875193
+               last_pointId  7298.054437
+          mean_seg_distance  7090.403148
+              strength_mean  6986.013335
+          total_path_length  6629.426862
+              prev_actionId  6206.523266
+            score_sum_start  5681.070360
+                 numberGame  5449.991748
+            last_score_diff  5068.983915
+               corner_ratio  5034.855166
+                last_spinId  4860.585283
+       pressure_x_dominance  4757.126932
+receiver_aggression_balance  4517.466824
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5408, std: 0.2448, range: [0.0959, 0.9334]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t3_structural.npz
+   Holdout AUC: 0.8164

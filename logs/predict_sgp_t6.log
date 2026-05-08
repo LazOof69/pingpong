@@ -1,0 +1,76 @@
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+========================================================================
+T6: T5 + NMF rank-6 player embeddings + k-NN borrow (Day 4)
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+
+Fold 1: total feats=111, T6 NMF new=13: ['nmf_srv_0', 'nmf_rcv_0', 'nmf_srv_1', 'nmf_rcv_1', 'nmf_srv_2', 'nmf_rcv_2', 'nmf_srv_3', 'nmf_rcv_3', 'nmf_srv_4', 'nmf_rcv_4', 'nmf_srv_5', 'nmf_rcv_5', 'nmf_skill_diff_l2']
+  NMF embeddings cover 197 players (train: 151, fold-in: 46)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[76]	valid_0's multi_logloss: 1.78398
+  Fold 1 prefix-AUC: 0.7820, best_iter: 76, NMF-in-top10: 1/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[64]	valid_0's multi_logloss: 1.84435
+  Fold 2 prefix-AUC: 0.7510, best_iter: 64, NMF-in-top10: 1/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[65]	valid_0's multi_logloss: 1.8816
+  Fold 3 prefix-AUC: 0.7613, best_iter: 65, NMF-in-top10: 2/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[69]	valid_0's multi_logloss: 1.83321
+  Fold 4 prefix-AUC: 0.7610, best_iter: 69, NMF-in-top10: 1/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[69]	valid_0's multi_logloss: 1.824
+  Fold 5 prefix-AUC: 0.7803, best_iter: 69, NMF-in-top10: 1/10
+
+========================================================================
+T6 OOF AUC (per-rally aggregated): 0.8198
+
+Top 25 features by gain (last fold):
+             feature   importance
+    t1_stacking_pred 57863.284477
+   parity_bayes_unif 19647.425214
+     last_strengthId 13297.506298
+       last_surprise  9089.689081
+cum_strokes_in_match  8115.533287
+           n_attacks  7968.035080
+   morris_importance  7375.370142
+bigram_loglik_player  6828.069927
+          bigram_dev  6614.455268
+   nmf_skill_diff_l2  6534.767183
+             ctx_len  6497.876219
+           nmf_rcv_1  6269.206676
+bigram_loglik_global  6199.370049
+       mean_surprise  5975.785617
+           nmf_srv_1  5941.828966
+            eb_rcv_p  5785.215415
+     dominance_index  5737.619459
+      eb_uncertainty  5568.543469
+            eb_srv_p  5495.073522
+        last_pointId  5457.007738
+       eb_skill_diff  5075.159514
+        max_surprise  4945.515096
+       strength_mean  4359.133714
+       eb_srv_lambda  4354.011335
+       last_actionId  4222.729108
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5418, std: 0.2362, range: [0.1048, 0.9280]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t6_nmf.npz
+   Holdout AUC: 0.8198

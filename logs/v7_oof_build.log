@@ -1,0 +1,46 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+======================================================================
+V7 Build OOF — 3-seed bagged LSTM
+======================================================================
+Loading V5 LGB OOF + labels from v5_oof.npz ...
+Preparing samples ...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  69712 samples (8.5s)
+
+[fold 1] val=14183, cursor=0
+  seed=42 model_v5_lstm_fold1.pt predicted (3.9s)
+  seed=1337 model_v7_seed1337_fold1.pt predicted (2.3s)
+  seed=2024 model_v7_seed2024_fold1.pt predicted (3.3s)
+
+[fold 2] val=13826, cursor=14183
+  seed=42 model_v5_lstm_fold2.pt predicted (4.2s)
+  seed=1337 model_v7_seed1337_fold2.pt predicted (4.7s)
+  seed=2024 model_v7_seed2024_fold2.pt predicted (4.4s)
+
+[fold 3] val=13881, cursor=28009
+  seed=42 model_v5_lstm_fold3.pt predicted (4.5s)
+  seed=1337 model_v7_seed1337_fold3.pt predicted (4.5s)
+  seed=2024 model_v7_seed2024_fold3.pt predicted (4.4s)
+
+[fold 4] val=13854, cursor=41890
+  seed=42 model_v5_lstm_fold4.pt predicted (3.3s)
+  seed=1337 model_v7_seed1337_fold4.pt predicted (4.3s)
+  seed=2024 model_v7_seed2024_fold4.pt predicted (4.4s)
+
+[fold 5] val=13968, cursor=55744
+  seed=42 model_v5_lstm_fold5.pt predicted (4.4s)
+  seed=1337 model_v7_seed1337_fold5.pt predicted (4.5s)
+  seed=2024 model_v7_seed2024_fold5.pt predicted (4.2s)
+
+Bagged LSTM raw OOF: F1_a=0.4230 F1_p=0.2426
+V5  LSTM raw OOF:     F1_a=0.4166 F1_p=0.2406
+
+→ saved v7_oof.npz

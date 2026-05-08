@@ -1,0 +1,67 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  5668 rows, 1845 rallies (csv=data/test_new.csv, has_sgp=False)
+  PID test csv (different from inference test): data/test.csv
+  選手數: 189 (PID2IDX from train + data/test.csv)
+======================================================================
+Phase 4-B LGB + LSTM softmax
+======================================================================
+Seeds: ['42', '1337'], κ=50
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  Loaded seed 42: oof shape (69712, 19), test shape (1845, 19)
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  Loaded seed 1337: oof shape (69712, 19), test shape (1845, 19)
+  Avg OOF: action (69712, 19), point (69712, 10)
+  Avg test: action (1845, 19), point (1845, 10)
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+
+Fold 1/5: Tr 57619 samples, Va 12093, features=68
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[9]	valid_0's auc: 0.546998
+  Fold 1 prefix-AUC: 0.5470, best_iter: 9, softmax-in-top10: 1
+
+Fold 2/5: Tr 57089 samples, Va 12623, features=68
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[108]	valid_0's auc: 0.559224
+  Fold 2 prefix-AUC: 0.5592, best_iter: 108, softmax-in-top10: 1
+
+Fold 3/5: Tr 55575 samples, Va 14137, features=68
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[200]	valid_0's auc: 0.558551
+  Fold 3 prefix-AUC: 0.5586, best_iter: 200, softmax-in-top10: 1
+
+Fold 4/5: Tr 56048 samples, Va 13664, features=68
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[159]	valid_0's auc: 0.590967
+  Fold 4 prefix-AUC: 0.5910, best_iter: 159, softmax-in-top10: 0
+
+Fold 5/5: Tr 52517 samples, Va 17195, features=68
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[5]	valid_0's auc: 0.581034
+  Fold 5 prefix-AUC: 0.5810, best_iter: 5, softmax-in-top10: 1
+
+======================================================================
+OOF AUC (per-rally aggregated): 0.6067
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5182, std: 0.0582, range: [0.3559, 0.7133]
+
+→ Saved artifacts/sgp_pred_NEWTEST_lgb_softmax.npz
+   Holdout AUC: 0.6067

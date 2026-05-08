@@ -1,0 +1,27 @@
+======================================================================
+V5-Z Advanced Calibration: bagging + plug-in additive log-bias
+======================================================================
+Seeds available: ['42']
+Action classes: 19, Point classes: 10
+OOF samples: 69712
+
+Raw component (bagged across seeds):
+  LSTM  action F1=0.3742  point F1=0.2394
+  LGB   action F1=0.3473  point F1=0.2272
+
+Search scalar α (ens = α*LSTM + (1-α)*LGB):
+  action α=0.60  raw F1_a=0.3826
+  point  α=0.60  raw F1_p=0.2433
+
+Plug-in additive log-bias (per-class):
+  action F1_a=0.3882  bias_a=[ 0.3 -0.1 -0.2  0.3  0.   0.3  0.   0.   0.3  0.   0.   0.  -0.1 -0.1
+ -0.1 -0.7 -0.8  0.   0. ]
+  point  F1_p=0.2620  bias_p=[-0.2  0.3  0.   1.2  0.3  0.2 -0.3  0.2  0.1 -0.1]
+
+Final OOF CV: 0.4601
+
+Submission: submissions/submission_v5z_advcal_bag1.csv  (1236 rows)
+
+→ Compare:
+  baseline floor (epoch5): 0.4143
+  V5Z bag1 additive cal: 0.4601

@@ -1,0 +1,77 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+==============================================================================
+P2 Stage A probe (CHEAP) — FAISS over LGB 49-dim features
+==============================================================================
+
+Building LGB features for all train samples...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  Total samples: 69712, features: 48
+
+──────────────────────────────────────────────────────────────────────────────
+Building k-NN OOF predictions per fold (FAISS k=64, τ sweep)
+──────────────────────────────────────────────────────────────────────────────
+
+  Fold 1/5
+    train=57619, val=12093
+    FAISS retrieval: 2.6s for 12093 queries
+
+  Fold 2/5
+    train=57089, val=12623
+    FAISS retrieval: 2.5s for 12623 queries
+
+  Fold 3/5
+    train=55575, val=14137
+    FAISS retrieval: 2.7s for 14137 queries
+
+  Fold 4/5
+    train=56048, val=13664
+    FAISS retrieval: 2.7s for 13664 queries
+
+  Fold 5/5
+    train=52517, val=17195
+    FAISS retrieval: 3.2s for 17195 queries
+
+──────────────────────────────────────────────────────────────────────────────
+RESULTS — kNN OOF metrics
+──────────────────────────────────────────────────────────────────────────────
+
+  τ       F1_action   F1_point    avg       Pearson_a   Pearson_p   
+  10.0    0.1812      0.1386      0.1599    0.4456      0.3080      
+  50.0    0.1966      0.1454      0.1710    0.5698      0.4665      
+  100.0   0.1973      0.1466      0.1719    0.6121      0.5354      
+
+  Best τ: 100.0 (avg F1 = 0.1719)
+
+  kNN best τ=100.0: F1_a=0.1973, F1_p=0.1466, avg=0.1719
+  Bag2 LSTM (uncalibrated): F1_a=0.3602, F1_p=0.2165, avg=0.2883
+  Pearson(kNN, LSTM) action: 0.6121
+  Pearson(kNN, LSTM) point:  0.5354
+
+==============================================================================
+DECISION (per deep research P2 Stage A gates)
+==============================================================================
+
+  Gate 1: Pearson(kNN, LSTM) < 0.75
+    action ρ = 0.6121 → ✅
+    point  ρ = 0.5354 → ✅
+
+  Gate 2: kNN OOF macro-F1 (avg) > 0.20 (cheap version threshold)
+    avg F1 = 0.1719 → ❌
+
+  CONCLUSION:
+  ⚠️  MARGINAL — Pearson OK but F1 below threshold
+  → Consider tuning τ or proceeding with full hidden-state version
+
+  Artifacts saved: artifacts/probe_p2_stage_a.npz

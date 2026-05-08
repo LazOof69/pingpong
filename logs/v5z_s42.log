@@ -1,0 +1,170 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+
+============================================================
+準備資料...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  LSTM 訓練樣本: 69712
+  LSTM 測試樣本: 1236
+建立 LGB 特徵...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  LGB 特徵: 48 個
+  準備完成 (18.7s)
+
+  actionId weights: {0: 0.426, 1: 0.155, 2: 0.242, 3: 0.418, 4: 0.376, 5: 0.298, 6: 0.237, 7: 0.513, 8: 1.0, 9: 0.684, 10: 0.182, 11: 0.325, 12: 0.287, 13: 0.218, 14: 0.779}
+  pointId weights:  {0: 0.115, 1: 0.591, 2: 0.325, 3: 1.0, 4: 0.26, 5: 0.176, 6: 0.21, 7: 0.149, 8: 0.128, 9: 0.112}
+
+============================================================
+開始 5-fold CV (V5: LSTM+LGB Ensemble)
+
+──────────────────────────────────────────────────
+Fold 1/5
+  LSTM Train: 55529, Val: 14183
+  E  1: loss=2.5677 F1_act=0.1994 F1_pt=0.1327 Score=0.3328 tf_p=0.50
+  E  5: loss=2.0782 F1_act=0.3746 F1_pt=0.1793 Score=0.4215 tf_p=0.45
+  E 10: loss=1.9607 F1_act=0.4063 F1_pt=0.2012 Score=0.4430 tf_p=0.39
+  E 15: loss=1.9273 F1_act=0.4201 F1_pt=0.2047 Score=0.4499 tf_p=0.33
+  E 20: loss=1.9176 F1_act=0.4219 F1_pt=0.2041 Score=0.4504 tf_p=0.26
+  E 25: loss=1.9041 F1_act=0.4236 F1_pt=0.2108 Score=0.4538 tf_p=0.20
+  E 30: loss=1.8789 F1_act=0.4349 F1_pt=0.2210 Score=0.4623 tf_p=0.14
+  E 35: loss=1.8628 F1_act=0.4340 F1_pt=0.2238 Score=0.4631 tf_p=0.08
+  E 40: loss=1.8438 F1_act=0.4311 F1_pt=0.2284 Score=0.4638 tf_p=0.01
+  Fold 1 best: 0.4664
+  LGB Train: 55529, Val: 14183
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[170]	valid_0's multi_logloss: 1.24175
+  LGB actionId: F1=0.3950 (best_iter=170)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[116]	valid_0's multi_logloss: 1.73456
+  LGB pointId: F1=0.2170 (best_iter=116)
+  Ensemble F1_act=0.4165 F1_pt=0.2310 Score=0.4590
+
+──────────────────────────────────────────────────
+Fold 2/5
+  LSTM Train: 55886, Val: 13826
+  E  1: loss=2.5709 F1_act=0.2259 F1_pt=0.1497 Score=0.3502 tf_p=0.50
+  E  5: loss=2.0742 F1_act=0.4090 F1_pt=0.2061 Score=0.4460 tf_p=0.45
+  E 10: loss=1.9636 F1_act=0.4513 F1_pt=0.2250 Score=0.4705 tf_p=0.39
+  E 15: loss=1.9333 F1_act=0.4619 F1_pt=0.2234 Score=0.4741 tf_p=0.33
+  E 20: loss=1.9262 F1_act=0.4654 F1_pt=0.2248 Score=0.4761 tf_p=0.26
+  E 25: loss=1.9119 F1_act=0.4691 F1_pt=0.2285 Score=0.4790 tf_p=0.20
+  E 30: loss=1.8878 F1_act=0.4828 F1_pt=0.2316 Score=0.4858 tf_p=0.14
+  E 35: loss=1.8697 F1_act=0.4812 F1_pt=0.2431 Score=0.4897 tf_p=0.08
+  E 40: loss=1.8537 F1_act=0.4841 F1_pt=0.2422 Score=0.4905 tf_p=0.01
+  Fold 2 best: 0.4928
+  LGB Train: 55886, Val: 13826
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[97]	valid_0's multi_logloss: 1.25914
+  LGB actionId: F1=0.3943 (best_iter=97)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[132]	valid_0's multi_logloss: 1.71267
+  LGB pointId: F1=0.2331 (best_iter=132)
+  Ensemble F1_act=0.4237 F1_pt=0.2474 Score=0.4684
+
+──────────────────────────────────────────────────
+Fold 3/5
+  LSTM Train: 55831, Val: 13881
+  E  1: loss=2.5632 F1_act=0.2156 F1_pt=0.1385 Score=0.3417 tf_p=0.50
+  E  5: loss=2.0685 F1_act=0.4024 F1_pt=0.1865 Score=0.4356 tf_p=0.45
+  E 10: loss=1.9562 F1_act=0.4350 F1_pt=0.2079 Score=0.4572 tf_p=0.39
+  E 15: loss=1.9242 F1_act=0.4442 F1_pt=0.2066 Score=0.4603 tf_p=0.33
+  E 20: loss=1.9151 F1_act=0.4516 F1_pt=0.2079 Score=0.4638 tf_p=0.26
+  E 25: loss=1.9048 F1_act=0.4575 F1_pt=0.2165 Score=0.4696 tf_p=0.20
+  E 30: loss=1.8801 F1_act=0.4628 F1_pt=0.2201 Score=0.4731 tf_p=0.14
+  E 35: loss=1.8594 F1_act=0.4664 F1_pt=0.2288 Score=0.4781 tf_p=0.08
+  E 40: loss=1.8430 F1_act=0.4716 F1_pt=0.2388 Score=0.4842 tf_p=0.01
+  Fold 3 best: 0.4842
+  LGB Train: 55831, Val: 13881
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[182]	valid_0's multi_logloss: 1.24804
+  LGB actionId: F1=0.3730 (best_iter=182)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[135]	valid_0's multi_logloss: 1.71289
+  LGB pointId: F1=0.2238 (best_iter=135)
+  Ensemble F1_act=0.4062 F1_pt=0.2346 Score=0.4563
+
+──────────────────────────────────────────────────
+Fold 4/5
+  LSTM Train: 55858, Val: 13854
+  E  1: loss=2.5423 F1_act=0.2353 F1_pt=0.1358 Score=0.3484 tf_p=0.50
+  E  5: loss=2.0756 F1_act=0.3962 F1_pt=0.2038 Score=0.4400 tf_p=0.45
+  E 10: loss=1.9594 F1_act=0.4350 F1_pt=0.2121 Score=0.4588 tf_p=0.39
+  E 15: loss=1.9279 F1_act=0.4494 F1_pt=0.2160 Score=0.4662 tf_p=0.33
+  E 20: loss=1.9210 F1_act=0.4500 F1_pt=0.2160 Score=0.4664 tf_p=0.26
+  E 25: loss=1.9058 F1_act=0.4555 F1_pt=0.2255 Score=0.4724 tf_p=0.20
+  E 30: loss=1.8783 F1_act=0.4597 F1_pt=0.2254 Score=0.4740 tf_p=0.14
+  E 35: loss=1.8615 F1_act=0.4675 F1_pt=0.2304 Score=0.4792 tf_p=0.08
+  E 40: loss=1.8451 F1_act=0.4675 F1_pt=0.2412 Score=0.4835 tf_p=0.01
+  Fold 4 best: 0.4835
+  LGB Train: 55858, Val: 13854
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[249]	valid_0's multi_logloss: 1.25721
+  LGB actionId: F1=0.3865 (best_iter=249)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[125]	valid_0's multi_logloss: 1.70462
+  LGB pointId: F1=0.2296 (best_iter=125)
+  Ensemble F1_act=0.4101 F1_pt=0.2458 Score=0.4624
+
+──────────────────────────────────────────────────
+Fold 5/5
+  LSTM Train: 55744, Val: 13968
+  E  1: loss=2.5589 F1_act=0.1983 F1_pt=0.1519 Score=0.3401 tf_p=0.50
+  E  5: loss=2.0810 F1_act=0.3743 F1_pt=0.1951 Score=0.4277 tf_p=0.45
+  E 10: loss=1.9652 F1_act=0.4190 F1_pt=0.2062 Score=0.4501 tf_p=0.39
+  E 15: loss=1.9302 F1_act=0.4273 F1_pt=0.2210 Score=0.4593 tf_p=0.33
+  E 20: loss=1.9212 F1_act=0.4271 F1_pt=0.2171 Score=0.4577 tf_p=0.26
+  E 25: loss=1.9091 F1_act=0.4428 F1_pt=0.2217 Score=0.4658 tf_p=0.20
+  E 30: loss=1.8822 F1_act=0.4427 F1_pt=0.2300 Score=0.4691 tf_p=0.14
+  E 35: loss=1.8668 F1_act=0.4453 F1_pt=0.2385 Score=0.4735 tf_p=0.08
+  E 40: loss=1.8463 F1_act=0.4483 F1_pt=0.2410 Score=0.4757 tf_p=0.01
+  Fold 5 best: 0.4757
+  LGB Train: 55744, Val: 13968
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[215]	valid_0's multi_logloss: 1.21567
+  LGB actionId: F1=0.3887 (best_iter=215)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[131]	valid_0's multi_logloss: 1.72804
+  LGB pointId: F1=0.2314 (best_iter=131)
+  Ensemble F1_act=0.4198 F1_pt=0.2460 Score=0.4663
+
+============================================================
+OOF Ensemble 校準...
+
+  搜尋最佳 ensemble 權重...
+  最佳 LSTM 權重: 0.60, Score: 0.4684
+
+  actionId 校準:
+
+  pointId 校準:
+
+  最終校準 CV: F1_act=0.4343 F1_pt=0.2625 Score=0.4788
+
+============================================================
+生成測試預測...
+
+提交檔案: submission_v5z_s42.csv
+  共 1236 筆
+  actionId: {0: 48, 1: 317, 2: 69, 3: 16, 4: 64, 5: 75, 6: 127, 7: 34, 8: 2, 9: 21, 10: 180, 11: 84, 12: 28, 13: 166, 14: 5}
+  pointId:  {0: 231, 1: 8, 2: 66, 3: 5, 4: 19, 5: 75, 6: 28, 7: 126, 8: 218, 9: 460}
+
+完成!

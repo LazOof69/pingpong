@@ -1,0 +1,50 @@
+========================================================================
+T1: LGB multi-class on R (remaining strokes), parity-Bayes decode
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+
+Fold 1/5: Tr 42537 samples, Va 9214, features=40, R_max=15
+  R distribution (train): {14: 134, 9: 573, 5: 3397, 3: 7353, 2: 9410, 1: 10926, 6: 1955, 4: 4917, 11: 317, 7: 1363, 10: 424, 15: 505, 13: 163, 8: 884, 12: 216}
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[39]	valid_0's multi_logloss: 1.89139
+  Fold 1 prefix-AUC: 0.6263, best_iter: 39
+
+Fold 2/5: Tr 39644 samples, Va 12107, features=40, R_max=15
+  R distribution (train): {3: 6901, 2: 8832, 1: 10303, 5: 3070, 4: 4508, 8: 794, 7: 1238, 6: 1821, 12: 201, 11: 280, 10: 385, 9: 572, 13: 137, 14: 131, 15: 471}
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[41]	valid_0's multi_logloss: 1.94232
+  Fold 2 prefix-AUC: 0.6157, best_iter: 41
+
+Fold 3/5: Tr 41876 samples, Va 9875, features=40, R_max=15
+  R distribution (train): {9: 578, 8: 820, 7: 1280, 6: 1889, 3: 7298, 2: 9413, 1: 11011, 5: 3261, 4: 4780, 15: 400, 14: 129, 13: 154, 10: 390, 12: 199, 11: 274}
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[46]	valid_0's multi_logloss: 1.9832
+  Fold 3 prefix-AUC: 0.6200, best_iter: 46
+
+Fold 4/5: Tr 40609 samples, Va 11142, features=40, R_max=15
+  R distribution (train): {12: 216, 8: 827, 6: 1891, 5: 3153, 4: 4652, 3: 7041, 2: 9108, 1: 10523, 13: 155, 10: 400, 7: 1232, 15: 454, 14: 107, 11: 272, 9: 578}
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[32]	valid_0's multi_logloss: 1.95015
+  Fold 4 prefix-AUC: 0.6192, best_iter: 32
+
+Fold 5/5: Tr 42338 samples, Va 9413, features=40, R_max=15
+  R distribution (train): {14: 117, 13: 136, 8: 839, 7: 1326, 3: 7319, 2: 9494, 1: 11016, 6: 1978, 5: 3302, 12: 208, 10: 411, 4: 4832, 15: 443, 9: 598, 11: 319}
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[38]	valid_0's multi_logloss: 1.94153
+  Fold 5 prefix-AUC: 0.6270, best_iter: 38
+
+========================================================================
+T1 OOF AUC (per-rally aggregated): 0.7832
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5261, std: 0.1178, range: [0.1917, 0.8167]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t1_rcount.npz
+   Holdout AUC: 0.7832

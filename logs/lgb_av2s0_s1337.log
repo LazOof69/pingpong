@@ -1,0 +1,94 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+
+======================================================================
+A v2 Step 0 (cheap baseline) — LGB only, seed=1337
+======================================================================
+
+Reusing LSTM artifacts from: artifacts/v5z_s1337_oof.npz, artifacts/v5z_s1337_test.npz
+
+Building LGB features (with V5Z_AV2_S0=1, +6 in-prefix features)...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  LGB features: 54 (was 49 baseline)
+  prep time: 9.0s
+  new columns added: ['srv_strokes_in_prefix', 'rcv_strokes_in_prefix', 'srv_attack_in_prefix', 'rcv_attack_in_prefix', 'srv_forehand_in_prefix', 'rcv_forehand_in_prefix']
+
+Reproducing fold split (StratifiedKFold(N=5, random_state=1337))...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+
+────────────────────────────────────────────────────────────
+Fold 1/5
+  LGB Train: 55518, Val: 14194
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[218]	valid_0's multi_logloss: 1.20948
+  LGB actionId: F1=0.3991 (best_iter=218)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[139]	valid_0's multi_logloss: 1.71864
+  LGB pointId: F1=0.2330 (best_iter=139)
+
+────────────────────────────────────────────────────────────
+Fold 2/5
+  LGB Train: 56015, Val: 13697
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[208]	valid_0's multi_logloss: 1.2696
+  LGB actionId: F1=0.3836 (best_iter=208)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[113]	valid_0's multi_logloss: 1.71231
+  LGB pointId: F1=0.2215 (best_iter=113)
+
+────────────────────────────────────────────────────────────
+Fold 3/5
+  LGB Train: 55825, Val: 13887
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[182]	valid_0's multi_logloss: 1.25068
+  LGB actionId: F1=0.3911 (best_iter=182)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[124]	valid_0's multi_logloss: 1.71472
+  LGB pointId: F1=0.2299 (best_iter=124)
+
+────────────────────────────────────────────────────────────
+Fold 4/5
+  LGB Train: 55741, Val: 13971
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[159]	valid_0's multi_logloss: 1.24597
+  LGB actionId: F1=0.3846 (best_iter=159)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[128]	valid_0's multi_logloss: 1.72311
+  LGB pointId: F1=0.2213 (best_iter=128)
+
+────────────────────────────────────────────────────────────
+Fold 5/5
+  LGB Train: 55749, Val: 13963
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[190]	valid_0's multi_logloss: 1.25814
+  LGB actionId: F1=0.3890 (best_iter=190)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[134]	valid_0's multi_logloss: 1.72946
+  LGB pointId: F1=0.2215 (best_iter=134)
+
+  LGB-only mean F1: action=0.3895 point=0.2255
+
+Saved: artifacts/v5z_av2s0_s1337_oof.npz
+Saved: artifacts/v5z_av2s0_s1337_test.npz
+
+Next: V5Z_TAG_PREFIX=v5z_av2s0 V5Z_SEEDS=42,1337 python3 src/train/advcal_v5z.py

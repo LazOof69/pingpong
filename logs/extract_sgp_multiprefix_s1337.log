@@ -1,0 +1,32 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  5668 rows, 1845 rallies (csv=data/test_new.csv, has_sgp=False)
+  選手數: 197 (PID2IDX from train + data/test_new.csv)
+======================================================================
+Multi-prefix test sgp extraction — seed 1337
+======================================================================
+Weights tag: v5z_md_sgpaux_s1337
+Multi-prefix test samples: 5668
+Fold 1/5: loaded models/v5z/model_v5z_md_sgpaux_s1337_lstm_fold1.pt
+Fold 2/5: loaded models/v5z/model_v5z_md_sgpaux_s1337_lstm_fold2.pt
+Fold 3/5: loaded models/v5z/model_v5z_md_sgpaux_s1337_lstm_fold3.pt
+Fold 4/5: loaded models/v5z/model_v5z_md_sgpaux_s1337_lstm_fold4.pt
+Fold 5/5: loaded models/v5z/model_v5z_md_sgpaux_s1337_lstm_fold5.pt
+
+Multi-prefix per-rally test pred stats:
+  Rallies: 1845
+  mean 0.5267, std 0.0300, range [0.4231, 0.6400]
+
+→ Saved artifacts/sgp_aux_test_multiprefix_NEWTEST_s1337.npz
+Traceback (most recent call last):
+  File "/mnt/c/Users/butte/OneDrive/桌面/code projects/競賽/pingpong/src/train/extract_sgp_aux_multiprefix.py", line 160, in <module>
+    main()
+  File "/mnt/c/Users/butte/OneDrive/桌面/code projects/競賽/pingpong/src/train/extract_sgp_aux_multiprefix.py", line 148, in main
+    single = np.load(f"artifacts/sgp_aux_test_NEWTEST_s{SEED}.npz", allow_pickle=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/sgp_aux_test_NEWTEST_s1337.npz'

@@ -1,0 +1,68 @@
+========================================================================
+T2: T1 + xy/trajectory/dominance/reachability features
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+
+Fold 1/5: Tr 42537 samples, Va 9214, features=72 (T1=40 + new=32)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[40]	valid_0's multi_logloss: 1.89064
+  Fold 1 prefix-AUC: 0.6284, best_iter: 40, new-feats-in-top15: 4/15
+
+Fold 2/5: Tr 39644 samples, Va 12107, features=72 (T1=40 + new=32)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[43]	valid_0's multi_logloss: 1.94121
+  Fold 2 prefix-AUC: 0.6153, best_iter: 43, new-feats-in-top15: 4/15
+
+Fold 3/5: Tr 41876 samples, Va 9875, features=72 (T1=40 + new=32)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[45]	valid_0's multi_logloss: 1.97939
+  Fold 3 prefix-AUC: 0.6212, best_iter: 45, new-feats-in-top15: 3/15
+
+Fold 4/5: Tr 40609 samples, Va 11142, features=72 (T1=40 + new=32)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[34]	valid_0's multi_logloss: 1.94612
+  Fold 4 prefix-AUC: 0.6197, best_iter: 34, new-feats-in-top15: 3/15
+
+Fold 5/5: Tr 42338 samples, Va 9413, features=72 (T1=40 + new=32)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[37]	valid_0's multi_logloss: 1.94189
+  Fold 5 prefix-AUC: 0.6301, best_iter: 37, new-feats-in-top15: 2/15
+
+========================================================================
+T2 OOF AUC (per-rally aggregated): 0.7835
+
+Top 20 features by gain (last fold):
+          feature   importance
+     rcv_loserate 10801.216105
+      srv_winrate  9943.180711
+  last_strengthId  9921.746056
+        n_attacks  8189.969196
+    strength_last  7145.552584
+        srv_n_obs  6563.324208
+        rcv_n_obs  6548.307321
+          ctx_len  6119.884008
+     last_pointId  4615.430378
+              sex  4348.503684
+    last_actionId  4338.602190
+mean_seg_distance  4261.592170
+  last_score_diff  4090.871337
+  score_sum_start  3888.517234
+       numberGame  3723.205125
+    strength_mean  3637.986475
+total_path_length  3635.573050
+parity_bayes_unif  3432.299598
+       n_controls  3369.056228
+ max_attack_chain  3113.737148
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5255, std: 0.1173, range: [0.1966, 0.8341]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t2_features.npz
+   Holdout AUC: 0.7835

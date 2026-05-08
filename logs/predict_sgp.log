@@ -1,0 +1,23 @@
+======================================================================
+Phase 2: serverGetPoint Bayesian Predictor
+======================================================================
+Test CSV: data/test_new.csv
+κ grid: [5, 10, 20, 50]
+Train: 84707 rows, 14995 rallies
+Test:  5668 rows, 1845 rallies
+
+--- κ grid search (match-disjoint holdout AUC) ---
+  κ=  5: holdout AUC = 0.5233  ★
+  κ= 10: holdout AUC = 0.5239  ★
+  κ= 20: holdout AUC = 0.5241  ★
+  κ= 50: holdout AUC = 0.5244  ★
+
+Best κ = 50 → AUC = 0.5244
+
+⚠ Best AUC 0.5244 < 0.55 ship gate. Falling back to 0.5 placeholder.
+
+→ Saved artifacts/sgp_pred_NEWTEST.npz
+   1845 predictions, method=placeholder_0.5
+
+--- Acceptance gate check ---
+  AUC 0.5244 < 0.55 → use 0.5 placeholder

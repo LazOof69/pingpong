@@ -1,0 +1,61 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  5668 rows, 1845 rallies (csv=data/test_new.csv, has_sgp=False)
+  PID test csv (different from inference test): data/test.csv
+  選手數: 189 (PID2IDX from train + data/test.csv)
+======================================================================
+Phase 2 LGB-deep: serverGetPoint with LSTM trunk_out
+======================================================================
+Seeds: ['42'], κ=50
+  Loaded artifacts/trunk_train_oof_s42.npz shape=(69712, 128)
+  Avg trunk OOF: (69712, 128)
+  Avg trunk test: (1845, 128)
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  Train samples: 69712, test samples: 1845
+
+--- Per-fold training ---
+
+Fold 1/5: Tr 57619 samples, Va 12093, features=167 (39 hand + 128 trunk)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[103]	valid_0's auc: 0.560449
+  Fold 1 prefix-AUC: 0.5604, best_iter: 103, n_trunk_in_top20: 2/20
+
+Fold 2/5: Tr 57089 samples, Va 12623, features=167 (39 hand + 128 trunk)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[113]	valid_0's auc: 0.560443
+  Fold 2 prefix-AUC: 0.5604, best_iter: 113, n_trunk_in_top20: 0/20
+
+Fold 3/5: Tr 55575 samples, Va 14137, features=167 (39 hand + 128 trunk)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[6]	valid_0's auc: 0.537025
+  Fold 3 prefix-AUC: 0.5370, best_iter: 6, n_trunk_in_top20: 3/20
+
+Fold 4/5: Tr 56048 samples, Va 13664, features=167 (39 hand + 128 trunk)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[6]	valid_0's auc: 0.583943
+  Fold 4 prefix-AUC: 0.5839, best_iter: 6, n_trunk_in_top20: 2/20
+
+Fold 5/5: Tr 52517 samples, Va 17195, features=167 (39 hand + 128 trunk)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[3]	valid_0's auc: 0.575705
+  Fold 5 prefix-AUC: 0.5757, best_iter: 3, n_trunk_in_top20: 1/20
+
+======================================================================
+OOF AUC (per-rally aggregated, match-disjoint): 0.5904
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5215, std: 0.0344, range: [0.4197, 0.6368]
+
+→ Saved artifacts/sgp_pred_NEWTEST_lgb_deep.npz
+   Holdout AUC: 0.5904

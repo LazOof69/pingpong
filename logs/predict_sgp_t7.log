@@ -1,0 +1,76 @@
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+========================================================================
+T7: T6 + handedness-aware features
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+
+Fold 1: total feats=122, T7 new=11: ['srv_handedness_proxy', 'srv_handedness_nobs', 'srv_inferred_lefty', 'rcv_handedness_proxy', 'rcv_handedness_nobs', 'rcv_inferred_lefty', 'is_mixed_handedness', 'handedness_proxy_diff', 'last_pointId_canonical', 'last_point_side_canonical', 'prev_pointId_canonical']
+  Inferred lefties: 29 of 184 (15.8%)
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[100]	valid_0's multi_logloss: 1.78738
+  Fold 1 prefix-AUC: 0.7821, best_iter: 100, T7-new-in-top10: 0/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[68]	valid_0's multi_logloss: 1.84454
+  Fold 2 prefix-AUC: 0.7508, best_iter: 68, T7-new-in-top10: 0/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[69]	valid_0's multi_logloss: 1.87887
+  Fold 3 prefix-AUC: 0.7625, best_iter: 69, T7-new-in-top10: 0/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[64]	valid_0's multi_logloss: 1.84838
+  Fold 4 prefix-AUC: 0.7550, best_iter: 64, T7-new-in-top10: 0/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[72]	valid_0's multi_logloss: 1.83041
+  Fold 5 prefix-AUC: 0.7791, best_iter: 72, T7-new-in-top10: 0/10
+
+========================================================================
+T7 OOF AUC (per-rally aggregated): 0.8167
+
+Top 25 features by gain (last fold):
+              feature   importance
+     t1_stacking_pred 56426.778189
+    parity_bayes_unif 20550.401857
+      last_strengthId 12693.503009
+        last_surprise  8839.764775
+ cum_strokes_in_match  8503.930867
+            n_attacks  7275.697535
+    morris_importance  7245.327475
+    nmf_skill_diff_l2  6296.152952
+           bigram_dev  6247.243822
+              ctx_len  6233.304204
+ bigram_loglik_player  6076.740520
+            nmf_srv_1  6044.556344
+            nmf_rcv_1  6038.545491
+      dominance_index  5759.500067
+ bigram_loglik_global  5696.832637
+             eb_rcv_p  5643.513042
+        mean_surprise  5517.842093
+         max_surprise  5390.269268
+        strength_last  4990.750291
+       eb_uncertainty  4764.805377
+             eb_srv_p  4736.735088
+  srv_handedness_nobs  4708.171805
+handedness_proxy_diff  4524.406515
+        last_actionId  4266.217536
+    mean_seg_distance  4207.290072
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5424, std: 0.2333, range: [0.1096, 0.9350]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t7_handedness.npz
+   Holdout AUC: 0.8167

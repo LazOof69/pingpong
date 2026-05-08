@@ -1,0 +1,129 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+============================================================
+V7 Seed Bagging · seed=1337 · folds=[1, 2, 3, 4, 5]
+CV split 仍用 SEED=42 (與 V5 一致)
+============================================================
+準備 samples + class weights...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  69712 samples (7.3s)
+
+──────────────────────────────────────────────────
+[seed=1337] Fold 1/5
+  Train: 55529, Val: 14183
+  E  1: loss=2.3390 F1_act=0.2133 F1_pt=0.1268 Score=0.3361 tf_p=0.50
+  E  5: loss=1.9896 F1_act=0.3705 F1_pt=0.1894 Score=0.4239 tf_p=0.45
+  E 10: loss=1.9246 F1_act=0.4038 F1_pt=0.1917 Score=0.4382 tf_p=0.39
+  E 15: loss=1.9007 F1_act=0.4144 F1_pt=0.2084 Score=0.4491 tf_p=0.33
+  E 20: loss=1.8947 F1_act=0.4196 F1_pt=0.2115 Score=0.4524 tf_p=0.26
+  E 25: loss=1.8885 F1_act=0.4266 F1_pt=0.2082 Score=0.4539 tf_p=0.20
+  E 30: loss=1.8667 F1_act=0.4274 F1_pt=0.2265 Score=0.4616 tf_p=0.14
+  E 35: loss=1.8470 F1_act=0.4282 F1_pt=0.2285 Score=0.4627 tf_p=0.08
+  E 40: loss=1.8302 F1_act=0.4322 F1_pt=0.2325 Score=0.4659 tf_p=0.01
+  E 45: loss=1.8160 F1_act=0.4340 F1_pt=0.2344 Score=0.4673 tf_p=0.00
+  E 50: loss=1.8033 F1_act=0.4325 F1_pt=0.2314 Score=0.4656 tf_p=0.00
+  E 55: loss=1.8006 F1_act=0.4328 F1_pt=0.2317 Score=0.4658 tf_p=0.00
+  E 60: loss=1.7970 F1_act=0.4344 F1_pt=0.2324 Score=0.4667 tf_p=0.00
+  Early stop at epoch 60
+  Fold 1 best: 0.4673
+  fold 1 done in 13.1 min, best=0.4673
+  saved → model_v7_seed1337_fold1.pt
+
+──────────────────────────────────────────────────
+[seed=1337] Fold 2/5
+  Train: 55886, Val: 13826
+  E  1: loss=2.3488 F1_act=0.2346 F1_pt=0.1440 Score=0.3514 tf_p=0.50
+  E  5: loss=1.9946 F1_act=0.4116 F1_pt=0.2012 Score=0.4451 tf_p=0.45
+  E 10: loss=1.9316 F1_act=0.4455 F1_pt=0.2144 Score=0.4640 tf_p=0.39
+  E 15: loss=1.9098 F1_act=0.4665 F1_pt=0.2206 Score=0.4749 tf_p=0.33
+  E 20: loss=1.9007 F1_act=0.4673 F1_pt=0.2222 Score=0.4758 tf_p=0.26
+  E 25: loss=1.8952 F1_act=0.4698 F1_pt=0.2267 Score=0.4786 tf_p=0.20
+  E 30: loss=1.8759 F1_act=0.4735 F1_pt=0.2347 Score=0.4833 tf_p=0.14
+  E 35: loss=1.8579 F1_act=0.4774 F1_pt=0.2352 Score=0.4851 tf_p=0.08
+  E 40: loss=1.8428 F1_act=0.4835 F1_pt=0.2397 Score=0.4893 tf_p=0.01
+  E 45: loss=1.8265 F1_act=0.4821 F1_pt=0.2432 Score=0.4901 tf_p=0.00
+  E 50: loss=1.8175 F1_act=0.4855 F1_pt=0.2452 Score=0.4923 tf_p=0.00
+  E 55: loss=1.8082 F1_act=0.4846 F1_pt=0.2447 Score=0.4917 tf_p=0.00
+  E 60: loss=1.8088 F1_act=0.4844 F1_pt=0.2448 Score=0.4917 tf_p=0.00
+  Early stop at epoch 62
+  Fold 2 best: 0.4932
+  fold 2 done in 14.0 min, best=0.4932
+  saved → model_v7_seed1337_fold2.pt
+
+──────────────────────────────────────────────────
+[seed=1337] Fold 3/5
+  Train: 55831, Val: 13881
+  E  1: loss=2.3698 F1_act=0.2225 F1_pt=0.1409 Score=0.3453 tf_p=0.50
+  E  5: loss=1.9962 F1_act=0.3773 F1_pt=0.1897 Score=0.4268 tf_p=0.45
+  E 10: loss=1.9301 F1_act=0.4260 F1_pt=0.1970 Score=0.4492 tf_p=0.39
+  E 15: loss=1.9053 F1_act=0.4342 F1_pt=0.2088 Score=0.4572 tf_p=0.33
+  E 20: loss=1.8999 F1_act=0.4400 F1_pt=0.2097 Score=0.4599 tf_p=0.26
+  E 25: loss=1.8918 F1_act=0.4544 F1_pt=0.2197 Score=0.4696 tf_p=0.20
+  E 30: loss=1.8712 F1_act=0.4511 F1_pt=0.2189 Score=0.4680 tf_p=0.14
+  E 35: loss=1.8506 F1_act=0.4599 F1_pt=0.2213 Score=0.4725 tf_p=0.08
+  E 40: loss=1.8395 F1_act=0.4575 F1_pt=0.2333 Score=0.4763 tf_p=0.01
+  E 45: loss=1.8204 F1_act=0.4579 F1_pt=0.2337 Score=0.4766 tf_p=0.00
+  E 50: loss=1.8110 F1_act=0.4607 F1_pt=0.2334 Score=0.4776 tf_p=0.00
+  E 55: loss=1.8059 F1_act=0.4620 F1_pt=0.2354 Score=0.4789 tf_p=0.00
+  E 60: loss=1.8053 F1_act=0.4613 F1_pt=0.2358 Score=0.4789 tf_p=0.00
+  E 65: loss=1.8196 F1_act=0.4568 F1_pt=0.2282 Score=0.4740 tf_p=0.00
+  Early stop at epoch 68
+  Fold 3 best: 0.4796
+  fold 3 done in 51.6 min, best=0.4796
+  saved → model_v7_seed1337_fold3.pt
+
+──────────────────────────────────────────────────
+[seed=1337] Fold 4/5
+  Train: 55858, Val: 13854
+  E  1: loss=2.3514 F1_act=0.2270 F1_pt=0.1380 Score=0.3460 tf_p=0.50
+  E  5: loss=1.9897 F1_act=0.4022 F1_pt=0.1922 Score=0.4378 tf_p=0.45
+  E 10: loss=1.9288 F1_act=0.4379 F1_pt=0.2096 Score=0.4590 tf_p=0.39
+  E 15: loss=1.9028 F1_act=0.4479 F1_pt=0.2243 Score=0.4689 tf_p=0.33
+  E 20: loss=1.8984 F1_act=0.4529 F1_pt=0.2203 Score=0.4693 tf_p=0.26
+  E 25: loss=1.8895 F1_act=0.4548 F1_pt=0.2402 Score=0.4780 tf_p=0.20
+  E 30: loss=1.8705 F1_act=0.4577 F1_pt=0.2400 Score=0.4791 tf_p=0.14
+  E 35: loss=1.8535 F1_act=0.4598 F1_pt=0.2478 Score=0.4830 tf_p=0.08
+  E 40: loss=1.8355 F1_act=0.4623 F1_pt=0.2489 Score=0.4845 tf_p=0.01
+  E 45: loss=1.8193 F1_act=0.4683 F1_pt=0.2469 Score=0.4861 tf_p=0.00
+  E 50: loss=1.8119 F1_act=0.4646 F1_pt=0.2502 Score=0.4859 tf_p=0.00
+  E 55: loss=1.8060 F1_act=0.4654 F1_pt=0.2462 Score=0.4846 tf_p=0.00
+  E 60: loss=1.8013 F1_act=0.4671 F1_pt=0.2487 Score=0.4863 tf_p=0.00
+  E 65: loss=1.8155 F1_act=0.4593 F1_pt=0.2484 Score=0.4830 tf_p=0.00
+  E 70: loss=1.8012 F1_act=0.4623 F1_pt=0.2502 Score=0.4850 tf_p=0.00
+  Early stop at epoch 73
+  Fold 4 best: 0.4870
+  fold 4 done in 17.4 min, best=0.4870
+  saved → model_v7_seed1337_fold4.pt
+
+──────────────────────────────────────────────────
+[seed=1337] Fold 5/5
+  Train: 55744, Val: 13968
+  E  1: loss=2.3535 F1_act=0.2098 F1_pt=0.1412 Score=0.3404 tf_p=0.50
+  E  5: loss=1.9932 F1_act=0.3852 F1_pt=0.1977 Score=0.4332 tf_p=0.45
+  E 10: loss=1.9275 F1_act=0.4242 F1_pt=0.2083 Score=0.4530 tf_p=0.39
+  E 15: loss=1.9031 F1_act=0.4336 F1_pt=0.2150 Score=0.4594 tf_p=0.33
+  E 20: loss=1.8961 F1_act=0.4369 F1_pt=0.2153 Score=0.4609 tf_p=0.26
+  E 25: loss=1.8907 F1_act=0.4400 F1_pt=0.2155 Score=0.4622 tf_p=0.20
+  E 30: loss=1.8691 F1_act=0.4412 F1_pt=0.2233 Score=0.4658 tf_p=0.14
+  E 35: loss=1.8497 F1_act=0.4423 F1_pt=0.2380 Score=0.4721 tf_p=0.08
+  E 40: loss=1.8354 F1_act=0.4525 F1_pt=0.2372 Score=0.4759 tf_p=0.01
+  E 45: loss=1.8174 F1_act=0.4533 F1_pt=0.2417 Score=0.4780 tf_p=0.00
+  E 50: loss=1.8111 F1_act=0.4551 F1_pt=0.2375 Score=0.4770 tf_p=0.00
+  E 55: loss=1.8044 F1_act=0.4536 F1_pt=0.2437 Score=0.4789 tf_p=0.00
+  E 60: loss=1.8034 F1_act=0.4525 F1_pt=0.2403 Score=0.4771 tf_p=0.00
+  E 65: loss=1.8131 F1_act=0.4481 F1_pt=0.2399 Score=0.4752 tf_p=0.00
+  E 70: loss=1.8024 F1_act=0.4493 F1_pt=0.2391 Score=0.4754 tf_p=0.00
+  Early stop at epoch 71
+  Fold 5 best: 0.4792
+  fold 5 done in 17.7 min, best=0.4792
+  saved → model_v7_seed1337_fold5.pt
+
+============================================================
+seed=1337 all requested folds complete

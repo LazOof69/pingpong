@@ -1,0 +1,151 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+==============================================================================
+ATTACK 4 DIAGNOSTIC — slice-LGB on L=1 vs existing global LGB on L=1 OOF
+==============================================================================
+
+Building features...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  Total samples: 69712, features: 48
+  L=1 samples: 14995
+
+──────────────────────────────────────────────────────────────────────────────
+PART 1: Existing global LGB on L=1 OOF (bag of s42 + s1337)
+──────────────────────────────────────────────────────────────────────────────
+
+  Existing global LGB on L=1 OOF:
+    F1_action = 0.2093
+    F1_point  = 0.1309
+    avg       = 0.1701
+
+──────────────────────────────────────────────────────────────────────────────
+PART 2: Slice-trained LGB on L=1 only (matched hyperparameters)
+──────────────────────────────────────────────────────────────────────────────
+
+  Fold 1/5
+    train L=1 samples: 12095, val L=1 samples: 2900
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[55]	valid_0's multi_logloss: 1.52147
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[36]	valid_0's multi_logloss: 2.00194
+    slice-LGB trained (2.6s)
+
+  Fold 2/5
+    train L=1 samples: 12423, val L=1 samples: 2572
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[72]	valid_0's multi_logloss: 1.38521
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[34]	valid_0's multi_logloss: 2.00549
+    slice-LGB trained (2.7s)
+
+  Fold 3/5
+    train L=1 samples: 12099, val L=1 samples: 2896
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.42527
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[34]	valid_0's multi_logloss: 2.02018
+    slice-LGB trained (3.0s)
+
+  Fold 4/5
+    train L=1 samples: 11963, val L=1 samples: 3032
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[54]	valid_0's multi_logloss: 1.44553
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[41]	valid_0's multi_logloss: 2.00222
+    slice-LGB trained (2.6s)
+
+  Fold 5/5
+    train L=1 samples: 11400, val L=1 samples: 3595
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[78]	valid_0's multi_logloss: 1.47459
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[35]	valid_0's multi_logloss: 2.00091
+    slice-LGB trained (2.9s)
+
+──────────────────────────────────────────────────────────────────────────────
+PART 2b: Slice-LGB second seed (1337) for bag2 comparison
+──────────────────────────────────────────────────────────────────────────────
+
+  Fold 1/5 (seed 1337)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[73]	valid_0's multi_logloss: 1.45578
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[29]	valid_0's multi_logloss: 2.03914
+
+  Fold 2/5 (seed 1337)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[77]	valid_0's multi_logloss: 1.46186
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[40]	valid_0's multi_logloss: 2.00807
+
+  Fold 3/5 (seed 1337)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[63]	valid_0's multi_logloss: 1.40333
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[45]	valid_0's multi_logloss: 2.00864
+
+  Fold 4/5 (seed 1337)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[74]	valid_0's multi_logloss: 1.41881
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[40]	valid_0's multi_logloss: 1.99799
+
+  Fold 5/5 (seed 1337)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[53]	valid_0's multi_logloss: 1.66112
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[36]	valid_0's multi_logloss: 2.00483
+
+  Slice-LGB bag2 on L=1 OOF:
+    F1_action = 0.2297
+    F1_point  = 0.1198
+    avg       = 0.1747
+
+==============================================================================
+ATTACK 4 VERDICT
+==============================================================================
+
+  Action: existing=0.2093 | slice=0.2297 | Δ=+0.0204
+  Point:  existing=0.1309 | slice=0.1198 | Δ=-0.0111
+  Avg Δ:  +0.0047
+
+──────────────────────────────────────────────────────────────────────────────
+DECISION
+──────────────────────────────────────────────────────────────────────────────
+
+  ⚠️  MARGINAL — Δ_avg=+0.0047 ∈ [0.003, 0.005)
+  → Borderline. Test-weighted projection: 0.32 × 0.005 = +0.0015
+  → Below +0.010 ship gate even at full lift recovery
+
+  Artifacts saved to artifacts/probe_p3_attack4.npz

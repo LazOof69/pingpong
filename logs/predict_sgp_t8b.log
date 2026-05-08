@@ -1,0 +1,79 @@
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+/usr/lib/python3/dist-packages/sklearn/decomposition/_nmf.py:1621: UserWarning: The multiplicative update ('mu') solver cannot update zeros present in the initialization, and so leads to poorer results when used jointly with init='nndsvd'. You may try init='nndsvda' or init='nndsvdar' instead.
+  warnings.warn(
+========================================================================
+T8: T6 + match-level test self-supervised features
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+Computing match aggregates (train)...
+  train: 428 (match,player) entries, 216 matches
+Computing match aggregates (test)...
+  test:  460 (match,player) entries, 79 matches
+
+Fold 1: total feats=126, T8 new=16: ['match_seen', 'match_n_rallies', 'match_attack_rate', 'match_corner_rate', 'match_dominant_pointId', 'srv_match_attack_rate', 'srv_match_defense_rate', 'srv_match_corner_rate', 'srv_match_strength_mean', 'srv_match_n_present', 'rcv_match_attack_rate', 'rcv_match_defense_rate', 'rcv_match_strength_mean', 'rcv_match_n_present', 'match_skill_diff', 'match_aggression_diff']
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[104]	valid_0's multi_logloss: 1.78499
+  Fold 1 prefix-AUC: 0.7824, best_iter: 104, T8-new-in-top10: 3/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[77]	valid_0's multi_logloss: 1.84191
+  Fold 2 prefix-AUC: 0.7526, best_iter: 77, T8-new-in-top10: 4/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[92]	valid_0's multi_logloss: 1.87716
+  Fold 3 prefix-AUC: 0.7628, best_iter: 92, T8-new-in-top10: 2/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.83453
+  Fold 4 prefix-AUC: 0.7647, best_iter: 83, T8-new-in-top10: 3/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[71]	valid_0's multi_logloss: 1.83117
+  Fold 5 prefix-AUC: 0.7825, best_iter: 71, T8-new-in-top10: 3/10
+
+========================================================================
+T8 OOF AUC (per-rally aggregated): 0.8193
+
+Top 25 features by gain (last fold):
+                feature   importance
+       t1_stacking_pred 56569.125797
+      parity_bayes_unif 19018.641207
+        last_strengthId 12647.965212
+      match_attack_rate 10413.325324
+          last_surprise  7712.184251
+ rcv_match_defense_rate  7110.936166
+   cum_strokes_in_match  6821.165218
+      morris_importance  6555.935492
+   bigram_loglik_player  6534.853773
+  srv_match_attack_rate  6367.325553
+  rcv_match_attack_rate  6159.807705
+   bigram_loglik_global  6080.024351
+ srv_match_defense_rate  5982.788449
+             bigram_dev  5693.869861
+              n_attacks  5511.098416
+                ctx_len  5467.410717
+rcv_match_strength_mean  5222.619530
+           last_pointId  5185.022469
+          mean_surprise  5145.165613
+  srv_match_corner_rate  5113.485548
+        dominance_index  5087.277119
+       max_attack_chain  4883.268428
+           max_surprise  4843.799310
+srv_match_strength_mean  4707.578919
+ match_dominant_pointId  4512.088996
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5428, std: 0.2399, range: [0.0891, 0.9382]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t8_match_context.npz
+   Holdout AUC: 0.8193

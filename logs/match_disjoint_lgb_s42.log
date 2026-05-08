@@ -1,0 +1,154 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+
+==============================================================================
+A1: Match-disjoint LGB-only retrain, seed=42
+==============================================================================
+
+Reusing LSTM artifacts: artifacts/v5z_s42_oof.npz
+
+Building LGB features (vanilla 49)...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features: 48 cols, 9.1s
+
+Building match-disjoint StratifiedGroupKFold split...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  uids=14995, unique matches=216
+  Per-fold matches: train | val
+    fold 1: 172 train matches |  44 val matches  (overlap: 0)
+    fold 2: 173 train matches |  43 val matches  (overlap: 0)
+    fold 3: 174 train matches |  42 val matches  (overlap: 0)
+    fold 4: 174 train matches |  42 val matches  (overlap: 0)
+    fold 5: 171 train matches |  45 val matches  (overlap: 0)
+
+Reproducing rally-KFold (the existing protocol)...
+
+──────────────────────────────────────────────────────────────────────
+Training LGB with rally-KFold
+──────────────────────────────────────────────────────────────────────
+  fold 1: train=55529, val=14183
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[170]	valid_0's multi_logloss: 1.24174
+  LGB action: F1=0.3950 (best_iter=170)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[116]	valid_0's multi_logloss: 1.73456
+  LGB point: F1=0.2170 (best_iter=116)
+  fold 2: train=55886, val=13826
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[77]	valid_0's multi_logloss: 1.27773
+  LGB action: F1=0.3959 (best_iter=77)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[132]	valid_0's multi_logloss: 1.71267
+  LGB point: F1=0.2331 (best_iter=132)
+  fold 3: train=55831, val=13881
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[222]	valid_0's multi_logloss: 1.24941
+  LGB action: F1=0.3738 (best_iter=222)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[135]	valid_0's multi_logloss: 1.71289
+  LGB point: F1=0.2238 (best_iter=135)
+  fold 4: train=55858, val=13854
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[276]	valid_0's multi_logloss: 1.25764
+  LGB action: F1=0.3913 (best_iter=276)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[125]	valid_0's multi_logloss: 1.70462
+  LGB point: F1=0.2296 (best_iter=125)
+  fold 5: train=55744, val=13968
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[215]	valid_0's multi_logloss: 1.21567
+  LGB action: F1=0.3887 (best_iter=215)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[131]	valid_0's multi_logloss: 1.72804
+  LGB point: F1=0.2314 (best_iter=131)
+
+  rally-KFold per-fold mean F1: action=0.3889  point=0.2270
+  rally-KFold FULL-OOF F1:        action=0.3897  point=0.2272
+
+──────────────────────────────────────────────────────────────────────
+Training LGB with match-disjoint
+──────────────────────────────────────────────────────────────────────
+  fold 1: train=57619, val=12093
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[121]	valid_0's multi_logloss: 1.49432
+  LGB action: F1=0.2895 (best_iter=121)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[82]	valid_0's multi_logloss: 1.74505
+  LGB point: F1=0.1671 (best_iter=82)
+  fold 2: train=57089, val=12623
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[93]	valid_0's multi_logloss: 1.35178
+  LGB action: F1=0.3074 (best_iter=93)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[92]	valid_0's multi_logloss: 1.74913
+  LGB point: F1=0.2054 (best_iter=92)
+  fold 3: train=55575, val=14137
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[56]	valid_0's multi_logloss: 1.5648
+  LGB action: F1=0.3047 (best_iter=56)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.80407
+  LGB point: F1=0.1637 (best_iter=83)
+  fold 4: train=56048, val=13664
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[70]	valid_0's multi_logloss: 1.54045
+  LGB action: F1=0.3101 (best_iter=70)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.78637
+  LGB point: F1=0.1724 (best_iter=83)
+  fold 5: train=52517, val=17195
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[122]	valid_0's multi_logloss: 1.43647
+  LGB action: F1=0.2974 (best_iter=122)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[83]	valid_0's multi_logloss: 1.77601
+  LGB point: F1=0.1789 (best_iter=83)
+
+  match-disjoint per-fold mean F1: action=0.3018  point=0.1775
+  match-disjoint FULL-OOF F1:        action=0.3023  point=0.1836
+
+==============================================================================
+DIAGNOSTIC SUMMARY
+==============================================================================
+  Rally-KFold     LGB OOF: action=0.3897  point=0.2272
+  Match-disjoint  LGB OOF: action=0.3023  point=0.1836
+  Δ_action = -0.0873
+  Δ_point  = -0.0436
+  Δ_CV     = -0.0524
+
+  Interpretation:
+  → Hypothesis STRONG: match-disjoint OOF much lower (Δ=-0.0524)
+     OOF was inflated by player overlap. Use match-disjoint for selection.
+
+Saved: artifacts/v5z_md_s42_oof.npz
+Saved: artifacts/v5z_md_s42_test.npz

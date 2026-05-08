@@ -1,0 +1,30 @@
+# Large training artifacts (971MB) — regeneratable from scripts
+artifacts/
+models/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Claude runtime / local settings
+.claude/scheduled_tasks.lock
+.claude/settings.local.json
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Old archive (17MB, mostly stale rally-KFold artifacts)
+archive/
+
+# Logs are kept (small, useful for retrospective) but exclude very large ones
+logs/*.log.gz
+logs/*.tar

@@ -1,0 +1,69 @@
+======================================================================
+Phase 2 LGB-quick: serverGetPoint Predictor (rally features only)
+======================================================================
+Test CSV: data/test_new.csv, κ=50, n_folds=5
+Train: 84707 rows, 14995 rallies
+Test:  5668 rows, 1845 rallies
+
+--- Fold 1/5 ---
+  Tr rallies: 12227, Va rallies: 2768, features: 40
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[4]	valid_0's auc: 0.999433
+  Fold 1 AUC: 0.9994, best_iter: 4
+
+--- Fold 2/5 ---
+  Tr rallies: 11540, Va rallies: 3455, features: 40
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[5]	valid_0's auc: 0.999658
+  Fold 2 AUC: 0.9997, best_iter: 5
+
+--- Fold 3/5 ---
+  Tr rallies: 12210, Va rallies: 2785, features: 40
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[52]	valid_0's auc: 0.999373
+  Fold 3 AUC: 0.9994, best_iter: 52
+
+--- Fold 4/5 ---
+  Tr rallies: 11760, Va rallies: 3235, features: 40
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[5]	valid_0's auc: 0.99942
+  Fold 4 AUC: 0.9994, best_iter: 5
+
+--- Fold 5/5 ---
+  Tr rallies: 12243, Va rallies: 2752, features: 40
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[5]	valid_0's auc: 0.999821
+  Fold 5 AUC: 0.9998, best_iter: 5
+
+======================================================================
+OOF AUC (match-disjoint): 0.9991
+
+Top 10 features by gain (last fold):
+           feature   importance
+      rally_length 26857.905910
+last_strike_parity 15806.659668
+  score_self_start    13.433280
+         srv_n_obs     9.719480
+       srv_winrate     6.414510
+               sex     0.000000
+     n_srv_attacks     0.000000
+   last_point_side     0.000000
+   last_score_diff     0.000000
+         n_attacks     0.000000
+
+--- Test prediction ---
+  Test rallies: 1845, features: 40
+  Cold-start: server unseen 550/1845, receiver unseen 568/1845, match unseen 1845/1845
+  Pred mean: 0.5440, std: 0.1145
+  Pred range: [0.4037, 0.6690]
+
+→ Saved artifacts/sgp_pred_NEWTEST_lgb_quick.npz
+   Holdout AUC: 0.9991
+
+--- Acceptance gate ---
+  AUC 0.9991 ≥ 0.65 → strong; proceed with LGB-deep ensemble

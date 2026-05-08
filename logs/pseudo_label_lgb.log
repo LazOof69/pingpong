@@ -1,0 +1,150 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  5668 rows, 1845 rallies (csv=data/test_new.csv, has_sgp=False)
+  PID test csv (different from inference test): data/test.csv
+  選手數: 189 (PID2IDX from train + data/test.csv)
+==============================================================================
+B: Pseudo-label LGB for action+point
+==============================================================================
+Seeds: ['42', '1337'], conf_action=0.3, conf_point=0.2
+
+Pseudo-label coverage:
+  Action conf >= 0.3: 1585/1845 (85.9%)
+  Point  conf >= 0.2: 1459/1845 (79.1%)
+  Action class distribution: {0: 44, 1: 446, 2: 94, 3: 22, 4: 79, 5: 82, 6: 149, 7: 56, 8: 2, 9: 27, 10: 198, 11: 110, 12: 30, 13: 236, 14: 10}
+
+Building LGB features for train + test...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  Train LGB samples: 69712
+  Test LGB samples: 1845
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+
+────────────────────────────────────────────────────────────
+Seed 42 (idx 1/2)
+  Fold 1: tr=57619 → 59204 (action +1585 pseudo); va=12093
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[127]	valid_0's multi_logloss: 1.47476
+  LGB actionId: F1=0.2936 (best_iter=127)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[94]	valid_0's multi_logloss: 1.74127
+  LGB pointId: F1=0.1774 (best_iter=94)
+  Fold 2: tr=57089 → 58674 (action +1585 pseudo); va=12623
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[122]	valid_0's multi_logloss: 1.33086
+  LGB actionId: F1=0.3148 (best_iter=122)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[91]	valid_0's multi_logloss: 1.74808
+  LGB pointId: F1=0.2076 (best_iter=91)
+  Fold 3: tr=55575 → 57160 (action +1585 pseudo); va=14137
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[56]	valid_0's multi_logloss: 1.54261
+  LGB actionId: F1=0.2952 (best_iter=56)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[84]	valid_0's multi_logloss: 1.80112
+  LGB pointId: F1=0.1701 (best_iter=84)
+  Fold 4: tr=56048 → 57633 (action +1585 pseudo); va=13664
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[135]	valid_0's multi_logloss: 1.43588
+  LGB actionId: F1=0.3204 (best_iter=135)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[81]	valid_0's multi_logloss: 1.7829
+  LGB pointId: F1=0.1760 (best_iter=81)
+  Fold 5: tr=52517 → 54102 (action +1585 pseudo); va=17195
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[69]	valid_0's multi_logloss: 1.48128
+  LGB actionId: F1=0.3102 (best_iter=69)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[79]	valid_0's multi_logloss: 1.77672
+  LGB pointId: F1=0.1843 (best_iter=79)
+
+────────────────────────────────────────────────────────────
+Seed 1337 (idx 2/2)
+  Fold 1: tr=53959 → 55544 (action +1585 pseudo); va=15753
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[87]	valid_0's multi_logloss: 1.49347
+  LGB actionId: F1=0.3146 (best_iter=87)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[74]	valid_0's multi_logloss: 1.82934
+  LGB pointId: F1=0.1595 (best_iter=74)
+  Fold 2: tr=55997 → 57582 (action +1585 pseudo); va=13715
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[137]	valid_0's multi_logloss: 1.3991
+  LGB actionId: F1=0.3105 (best_iter=137)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[96]	valid_0's multi_logloss: 1.73166
+  LGB pointId: F1=0.1958 (best_iter=96)
+  Fold 3: tr=55220 → 56805 (action +1585 pseudo); va=14492
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[115]	valid_0's multi_logloss: 1.37477
+  LGB actionId: F1=0.3052 (best_iter=115)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[78]	valid_0's multi_logloss: 1.78334
+  LGB pointId: F1=0.1689 (best_iter=78)
+  Fold 4: tr=56616 → 58201 (action +1585 pseudo); va=13096
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[148]	valid_0's multi_logloss: 1.3242
+  LGB actionId: F1=0.3258 (best_iter=148)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[82]	valid_0's multi_logloss: 1.74876
+  LGB pointId: F1=0.1931 (best_iter=82)
+  Fold 5: tr=57056 → 58641 (action +1585 pseudo); va=12656
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[108]	valid_0's multi_logloss: 1.57572
+  LGB actionId: F1=0.2919 (best_iter=108)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[82]	valid_0's multi_logloss: 1.76671
+  LGB pointId: F1=0.1739 (best_iter=82)
+
+OOF samples: 139424 (across 2 seeds × 5 folds)
+  Pseudo LGB action F1: 0.3117
+  Pseudo LGB point F1:  0.1874
+  Pseudo LGB test: action (1845, 19), point (1845, 10)
+
+Re-aligning LSTM OOF to match new fold-concat order...
+
+Searching alpha (LSTM/LGB blend)...
+  action α=0.70  raw F1_a=0.3559
+  point  α=1.00  raw F1_p=0.2162
+
+Plug-in bias...
+  action F1_a=0.3625
+  point  F1_p=0.2290
+
+Final pseudo OOF CV: 0.4366
+
+Submission: submissions/submission_v5z_md_advcal_bag2_PSEUDO.csv  (1845 rows)
+
+--- Compare to original (no pseudo) ---
+  Pseudo LGB action F1 OOF (raw): 0.3117
+  Pseudo LGB point F1 OOF (raw): 0.1874
+  Reference (baseline LGB, no pseudo): F1_a=0.3044, F1_p=0.1820
+  Calibrated final F1_a=0.3625, F1_p=0.2290
+  Reference (baseline calibrated): F1_a=0.3679, F1_p=0.2357

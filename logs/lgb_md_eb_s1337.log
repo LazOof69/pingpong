@@ -1,0 +1,90 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies
+  選手數: 189
+
+==============================================================================
+A3: Match-disjoint LGB with Empirical-Bayes prefix-only features, seed=1337
+==============================================================================
+
+Reusing match-disjoint LSTM artifacts: artifacts/v5z_md_full_s1337_oof.npz
+
+Computing global priors from train data...
+  global priors: {'attack_ratio': 0.4578252092507113, 'control_ratio': 0.1876586350596763, 'defense_ratio': 0.1532695054718028, 'forehand_ratio': 0.5337103190999564, 'topspin_ratio': 0.406330055367325}
+
+Building LGB features (V5Z_EB=1)...
+  [LGB] 3000/14995...
+  [LGB] 6000/14995...
+  [LGB] 9000/14995...
+  [LGB] 12000/14995...
+  features: 63 cols, 10.0s
+  EB columns (15): ['srv_eb_attack', 'srv_eb_control', 'srv_eb_defense', 'srv_eb_forehand', 'srv_eb_topspin', 'rcv_eb_attack', 'rcv_eb_control', 'rcv_eb_defense', 'rcv_eb_forehand', 'rcv_eb_topspin', 'eb_attack_diff', 'eb_forehand_diff', 'eb_topspin_diff', 'srv_eb_n', 'rcv_eb_n']
+
+Reproducing match-disjoint fold split...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+
+──────────────────────────────────────────────────────────────────────
+Training LGB (5 folds, match-disjoint, with EB features)
+──────────────────────────────────────────────────────────────────────
+  fold 1: train=53959, val=15753
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[30]	valid_0's multi_logloss: 1.62357
+  LGB action: F1=0.3011 (best_iter=30)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[75]	valid_0's multi_logloss: 1.83752
+  LGB point: F1=0.1519 (best_iter=75)
+  fold 1: action F1=0.3011  point F1=0.1519
+  fold 2: train=55997, val=13715
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[140]	valid_0's multi_logloss: 1.42999
+  LGB action: F1=0.3052 (best_iter=140)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[100]	valid_0's multi_logloss: 1.73752
+  LGB point: F1=0.1933 (best_iter=100)
+  fold 2: action F1=0.3052  point F1=0.1933
+  fold 3: train=55220, val=14492
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[150]	valid_0's multi_logloss: 1.37641
+  LGB action: F1=0.3018 (best_iter=150)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[86]	valid_0's multi_logloss: 1.78566
+  LGB point: F1=0.1735 (best_iter=86)
+  fold 3: action F1=0.3018  point F1=0.1735
+  fold 4: train=56616, val=13096
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[79]	valid_0's multi_logloss: 1.44994
+  LGB action: F1=0.3127 (best_iter=79)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[74]	valid_0's multi_logloss: 1.74736
+  LGB point: F1=0.1923 (best_iter=74)
+  fold 4: action F1=0.3127  point F1=0.1923
+  fold 5: train=57056, val=12656
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[80]	valid_0's multi_logloss: 1.60973
+  LGB action: F1=0.2796 (best_iter=80)
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[79]	valid_0's multi_logloss: 1.76817
+  LGB point: F1=0.1703 (best_iter=79)
+  fold 5: action F1=0.2796  point F1=0.1703
+
+  Mean LGB-only F1: action=0.3001  point=0.1763
+
+Saved: artifacts/v5z_mdeb_full_s1337_oof.npz
+Saved: artifacts/v5z_mdeb_full_s1337_test.npz
+
+Next: V5Z_SEEDS=1337 python3 src/train/advcal_match_disjoint.py  (with mdeb tag prefix)

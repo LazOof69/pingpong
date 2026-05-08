@@ -1,0 +1,43 @@
+============================================================
+Device: cuda
+載入資料...
+  Train: 84707 rows, 14995 rallies
+  Test:  3589 rows, 1236 rallies (csv=data/test.csv, has_sgp=True)
+  選手數: 189 (PID2IDX from train + data/test.csv)
+==============================================================================
+V5-Z Match-Disjoint Advanced Calibration
+==============================================================================
+Seeds: ['42', '1337']
+Artifact prefix: v5z_md_full_NEWTEST
+Test artifact suffix: ''  Submission suffix: '_NEWTEST'
+SGP override file: artifacts/sgp_pred_NEWTEST_lgb_quick.npz
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+  3000/14995...
+  6000/14995...
+  9000/14995...
+  12000/14995...
+OOF samples: 69712, action=19, point=10
+
+Raw component (bagged):
+  LSTM  action F1=0.3602  point F1=0.2165
+  LGB   action F1=0.3044  point F1=0.1820
+
+Search alpha (step 0.01):
+  action α=0.85  raw F1_a=0.3623
+  point  α=0.98  raw F1_p=0.2166
+
+Plug-in additive bias:
+  action F1_a=0.3679
+  point  F1_p=0.2357
+
+Final match-disjoint OOF CV: 0.4414
+Replaced test_sgp via artifacts/sgp_pred_NEWTEST_lgb_quick.npz (method=lgb_quick_v2_kappa50_5fold_avg_maxprefix5)
+
+Submission: submissions/submission_v5z_md_advcal_bag2_NEWTEST.csv  (1845 rows)
+
+Compare:
+  baseline V5Z bag2 calibrated CV (rally-KFold): 0.4816  → LB 0.4285
+  match-disjoint bag2 calibrated CV:    0.4414  → expected LB ~0.4334

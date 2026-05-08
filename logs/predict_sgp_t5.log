@@ -1,0 +1,65 @@
+========================================================================
+T5: T4 + Markov bigram features (Day 3)
+========================================================================
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+
+Fold 1: total feats=98, T5 new=7
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[75]	valid_0's multi_logloss: 1.7872
+  Fold 1 prefix-AUC: 0.7809, best_iter: 75, T5-new-in-top10: 3/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[56]	valid_0's multi_logloss: 1.85125
+  Fold 2 prefix-AUC: 0.7501, best_iter: 56, T5-new-in-top10: 3/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[64]	valid_0's multi_logloss: 1.87916
+  Fold 3 prefix-AUC: 0.7645, best_iter: 64, T5-new-in-top10: 2/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[56]	valid_0's multi_logloss: 1.85103
+  Fold 4 prefix-AUC: 0.7564, best_iter: 56, T5-new-in-top10: 1/10
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[66]	valid_0's multi_logloss: 1.83481
+  Fold 5 prefix-AUC: 0.7788, best_iter: 66, T5-new-in-top10: 1/10
+
+========================================================================
+T5 OOF AUC (per-rally aggregated): 0.8197
+
+Top 25 features by gain (last fold):
+             feature   importance
+    t1_stacking_pred 58230.382487
+   parity_bayes_unif 21225.498599
+     last_strengthId 15108.218902
+cum_strokes_in_match  9774.801552
+            eb_srv_p  9540.643631
+       last_surprise  9487.950138
+            eb_rcv_p  8956.560711
+       eb_skill_diff  8814.286382
+           n_attacks  7912.374959
+      eb_uncertainty  7581.479771
+          bigram_dev  7310.908382
+   morris_importance  7286.838593
+bigram_loglik_player  6387.655146
+       mean_surprise  6323.000062
+     dominance_index  6006.634078
+        max_surprise  5939.014657
+       eb_srv_lambda  5831.169532
+        last_pointId  5571.290228
+bigram_loglik_global  5525.689144
+       last_actionId  5111.058587
+       eb_rcv_lambda  4834.606723
+             ctx_len  4693.186594
+       strength_mean  4601.119416
+      eb_rcv_post_se  4228.034391
+   total_path_length  4140.243497
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5409, std: 0.2364, range: [0.1062, 0.9242]
+
+→ Saved artifacts/sgp_pred_NEWTEST_t5_markov.npz
+   Holdout AUC: 0.8197

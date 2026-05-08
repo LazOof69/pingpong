@@ -1,0 +1,69 @@
+======================================================================
+Phase 4-D LGB + player ELO + cross features
+======================================================================
+κ=50, ELO K=24.0, init=1500.0, folds=5, max_prefix=5
+Train: 84707 rows / 14995 rallies
+Test:  5668 rows / 1845 rallies
+
+Fold 1/5: Tr 42537 samples, Va 9214, features=47
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[120]	valid_0's auc: 0.603486
+  Fold 1 prefix-AUC: 0.6035, best_iter: 120, ELO/cross-in-top10: 1
+
+Fold 2/5: Tr 39644 samples, Va 12107, features=47
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[9]	valid_0's auc: 0.590292
+  Fold 2 prefix-AUC: 0.5903, best_iter: 9, ELO/cross-in-top10: 1
+
+Fold 3/5: Tr 41876 samples, Va 9875, features=47
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[127]	valid_0's auc: 0.601691
+  Fold 3 prefix-AUC: 0.6017, best_iter: 127, ELO/cross-in-top10: 1
+
+Fold 4/5: Tr 40609 samples, Va 11142, features=47
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[140]	valid_0's auc: 0.59242
+  Fold 4 prefix-AUC: 0.5924, best_iter: 140, ELO/cross-in-top10: 1
+
+Fold 5/5: Tr 42338 samples, Va 9413, features=47
+Training until validation scores don't improve for 40 rounds
+Early stopping, best iteration is:
+[137]	valid_0's auc: 0.604932
+  Fold 5 prefix-AUC: 0.6049, best_iter: 137, ELO/cross-in-top10: 0
+
+======================================================================
+OOF AUC: 0.6490
+
+Top 20 features by gain (last fold):
+             feature   importance
+        rcv_loserate 13489.736755
+         srv_winrate  8947.685458
+winrate_x_score_diff  5527.935890
+     last_strengthId  5151.678004
+             ctx_len  4349.010972
+           srv_n_obs  3446.904626
+       n_rcv_attacks  3185.863083
+       n_srv_attacks  3078.646447
+           rcv_n_obs  3078.320853
+     score_sum_start  2947.039111
+            elo_diff  2782.782957
+   winrate_x_ctx_len  2624.419446
+             elo_avg  2573.056174
+    score_self_start  2524.665976
+             srv_elo  2382.431058
+          numberGame  2288.786025
+             rcv_elo  2027.238830
+   score_other_start  1624.735495
+       last_actionId  1501.053628
+    score_diff_start  1342.769657
+
+--- Test prediction ---
+  Test rallies: 1845
+  Pred mean: 0.5244, std: 0.0810, range: [0.3090, 0.7864]
+
+→ Saved artifacts/sgp_pred_NEWTEST_lgb_elo.npz
+   Holdout AUC: 0.6490
